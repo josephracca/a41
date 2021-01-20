@@ -1,0 +1,16 @@
+.bgBarLight{
+    background-color: rgba(17, 16, 24, 0.632)!important;
+    padding: 10px;
+    position: fixed;
+    top: 0px;
+    /* height: 50px; */
+}
+
+.width{
+    width: 50px;
+}
+
+.credits{
+    font-size: 15px;
+    color: white;
+}

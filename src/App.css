@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-top: 50px;
 }
 
 .App-logo {
@@ -35,4 +36,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.buttonW{
+  width: 25%;
+  background-color: rgb(255, 196, 0)!important;
+  color: black!important;
+  border-style: none!important;
+  margin: 5px;
+  font-size: 20px!important;
+}
+
+.title{
+  font-size: 80px;
+  line-height: 90px;
 }
