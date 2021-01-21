@@ -1,9 +1,10 @@
-.bg2{
-    background-image: url('../../images/sunset.gif');
+.bg3{
+    background-image: url('../../images/canyon.png');
     background-size: cover!important;
     background-position: center;
     background-repeat: none;
     color: rgb(48, 48, 48);
-    padding: 15% 20px 55% 20px;
+    padding: 35% 20px 65% 20px;
+    /* height: 100%; */
     /* padding: 100px 0 100px 0; */
 }

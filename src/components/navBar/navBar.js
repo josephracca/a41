@@ -1,3 +1,7 @@
+import App from "../../App";
+
+
+
 //navbar stick to base of screen
 import {
   Container,
@@ -21,13 +25,19 @@ const options = <FontAwesomeIcon icon={faEllipsisH} size="1x" color="white" />;
 
 // ReactDOM.render(element, document.body)
 
+let showMenu = function(){
+  document.getElementById("home").className === "App d-none" ? document.getElementById("home").className = "App" : document.getElementById("home").className = "App d-none";
+  console.log('test');
+}
+
 const NavBar = () => {
   return (
     <>
       <Container fluid className="bgBar">
         <Row>
           <Col>{refresh}</Col>
-          <Col>{home}</Col>
+          <Col><Button onClick={showMenu}>{home}</Button></Col>
+          {/* //need to have this be able to REMOVE ONLY the "d-none" from className*/}
           <Col>
             <OverlayTrigger
               trigger="click"

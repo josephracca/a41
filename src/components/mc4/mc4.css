@@ -1,0 +1,11 @@
+.bg4{
+    /* background-image: url('../../images/canyon.png'); */
+    /* background-size: cover!important; */
+    /* background-position: center; */
+    /* background-repeat: none; */
+    color: rgb(51, 255, 0);
+    padding: 35% 20px 65% 20px;
+    background-color: black!important;
+    /* height: 100%; */
+    /* padding: 100px 0 100px 0; */
+}
