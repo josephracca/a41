@@ -1,13 +1,14 @@
 import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import "../../App.css";
+import "../mc2/mc2.css";
 
-class MiniChallenge1 extends React.Component {
+class MiniChallenge2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       firstName: "",
-      lastName: "",
+      awakeTime: "",
       message: "",
     };
   }
@@ -17,13 +18,13 @@ class MiniChallenge1 extends React.Component {
     console.log("test");
     if (
       document.getElementById("firstName").value === "" ||
-      document.getElementById("lastName").value === ""
+      document.getElementById("awakeTime").value === ""
     ) {
       alert("Uh oh, make sure both fields are filled, and try again!");
     } else {
       this.setState({
         firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
+        awakeTime: document.getElementById("awakeTime").value,
         message: "Uh oh, try again!",
       });
     }
@@ -31,23 +32,28 @@ class MiniChallenge1 extends React.Component {
 
   render() {
     return (
-      <>
-        <p>Welcome!</p>
-        <></>
-        <></>
-        <Container className="d-none">
+      <div className="bg2">
+        <Container>
+          <Row>
+            <Col>
+            <h1>MINI 2</h1>
+        <p>rise+grind</p>
+        </Col>
+          </Row>
           <Form.Group>
             <Form.Control
               id="firstName"
               size="lg"
               type="text"
-              placeholder="Type your first name here..."
+              placeholder="First name here..."
+              className="mb-3"
             />
             <Form.Control
-              id="lastName"
+            
+              id="awakeTime"
               size="lg"
               type="text"
-              placeholder="Type your last name here..."
+              placeholder="Wake up time today?"
             />
           </Form.Group>
           <Row>
@@ -56,24 +62,24 @@ class MiniChallenge1 extends React.Component {
             </Col>
           </Row>
 
-          <Row className="">
+          <Row className="my-3">
             <Col>
               {!this.state.message
-                ? "Let's get started, enter your name above then click submit!"
-                : `Hello, ${this.state.firstName} ${this.state.lastName}!`}
+                ? "Waiting..."
+                : `Good morrow, ${this.state.firstName}! You woke up at ${this.state.awakeTime}!? (Relatively late...)`}
             </Col>
           </Row>
 
-          <Row>
+          {/* <Row>
             <Col className="d-flex justify-content-between">
               <Button>{`< Menu`}</Button>
               <Button>Quit X</Button>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
-      </>
+      </div>
     );
   }
 }
 
-export default MiniChallenge1;
+export default MiniChallenge2;

@@ -5,6 +5,7 @@ import Button from "../src/components/button/button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Col, Row } from "react-bootstrap";
 import MC1 from "../src/components/mc1/mc1";
+import MC2 from "../src/components/mc2/mc2";
 import NavBar from "../src/components/navBar/navBar";
 import Header from "../src/components/header/header"
 // import { Router } from "react-router-dom";
@@ -25,6 +26,9 @@ function App() {
           <Route path="/mc1">
             <MC1 className="pb-5 mb-5"/>
           </Route>
+          <Route path="/mc2">
+            <MC2 className="pb-5 mb-5"/>
+          </Route>
           {/* now we need to just make sure all of these other links work */}
           {/* what happened was the props weren't getting passed to the button click */}
         </Switch>
@@ -37,7 +41,7 @@ function App() {
           <Row>
             <Col>
               <Button as={Link} to="/mc1" classes="buttonW" message="1" />
-              <Button as={Link} to="" classes="buttonW" message="2" />
+              <Button as={Link} to="/mc2" classes="buttonW" message="2" />
               <Button as={Link} to="" classes="buttonW" message="3" />
             </Col>
           </Row>

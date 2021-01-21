@@ -37,7 +37,7 @@ class MiniChallenge1 extends React.Component {
         <p>Welcome!</p>
         <></>
         <></>
-        <Container className="">
+        <Container>
           <Row>
             <Col>
               {" "}
