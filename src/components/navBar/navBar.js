@@ -1,5 +1,6 @@
 import App from "../../App";
-
+import "../navBar/navBar.css"
+import Music from "../../audio/All_Or_Nothing.mp3"
 
 
 //navbar stick to base of screen
@@ -60,16 +61,16 @@ const NavBar = () => {
                             stimulus!
                           </p>
                         </figcaption>
-                        {/* <audio controls src="./audio/final.mp3" autoplay>
+                        <audio controls src={Music} autoplay>
                           Your browser does not support the
                           <code>audio</code> element.
-                        </audio> */}
+                        </audio>
                       </span>
                       <figcaption>
                         <p>
                           <i class="fas fa-music"></i> by{" "}
-                          <a href="https://www.youtube.com/watch?v=0iIQ_y6Bv7k">
-                            StephenSeymourMusic
+                          <a href="https://www.youtube.com/watch?v=NGv-ta9eFbs">
+                          Sanny D.
                           </a>
                         </p>
                       </figcaption>

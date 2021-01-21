@@ -95,7 +95,6 @@ class App extends React.Component {
           {/* now we need to just make sure all of these other links work */}
           {/* what happened was the props weren't getting passed to the button click */}
         </Switch>
-        {/* <Header /> */}
         <NavBar />
       </Router>
     );
