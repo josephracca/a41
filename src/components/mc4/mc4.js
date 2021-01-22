@@ -1,7 +1,8 @@
 import React from "react";
-import { Button, Form, Container, Row, Col } from "react-bootstrap";
+import { Form, Container, Row, Col } from "react-bootstrap";
 import "../../App.css";
-import "../mc4/mc4.css";
+import "./mc4.css";
+import AButton from "../button/button";
 
 class MiniChallenge3 extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class MiniChallenge3 extends React.Component {
       });
     }
   }
+
 
   validateMe = () => {
     // document.getElementById("")
@@ -97,7 +99,12 @@ class MiniChallenge3 extends React.Component {
 
           <Row>
             <Col>
-              <Button onClick={this.validateMe}>Judge Us!</Button>
+              {/* <Button onClick={this.validateMe}>Judge Us!</Button> */}
+              <AButton
+                variant="warning"
+                onClick={this.validateMe}
+                message="Judge Us!"
+              />
             </Col>
           </Row>
 

@@ -12,6 +12,7 @@ import NavBar from "../src/components/navBar/navBar";
 import Header from "../src/components/header/header";
 // import { Router } from "react-router-dom";
 import React from "react";
+import Music from "./audio/All_Or_Nothing.mp3"
 
 
 import logo from "./images/JR_Logo.png";
@@ -70,6 +71,33 @@ class App extends React.Component {
                   <img src={logo} alt="Logo" className="width" />
                   racca
                 </span>
+              </Col>
+            </Row>
+            <Row className="mb-5">
+              <Col className="mb-5">
+              <figure>
+                      <span>
+                        <figcaption>
+                          <p>
+                            {" "}
+                            <i class="fas fa-volume-up"></i> + auditory
+                            stimulus!
+                          </p>
+                        </figcaption>
+                        <audio controls src={Music} autoplay>
+                          Your browser does not support the
+                          <code>audio</code> element.
+                        </audio>
+                      </span>
+                      <figcaption>
+                        <p>
+                          <i class="fas fa-music"></i> by{" "}
+                          <a href="https://www.youtube.com/watch?v=NGv-ta9eFbs">
+                          Sanny D.
+                          </a>
+                        </p>
+                      </figcaption>
+                    </figure>
               </Col>
             </Row>
           </Container>

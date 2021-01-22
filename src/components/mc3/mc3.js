@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import "../../App.css";
-import "../mc3/mc3.css";
+import "./mc3.css";
 
 class MiniChallenge3 extends React.Component {
   constructor(props) {

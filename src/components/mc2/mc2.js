@@ -1,7 +1,10 @@
 import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import "../../App.css";
-import "../mc2/mc2.css";
+import "./mc2.css";
+import ValidateString from '../validation/validation'
+
+let regEx = /[0-9]/;
 
 class MiniChallenge2 extends React.Component {
   constructor(props) {
@@ -15,13 +18,19 @@ class MiniChallenge2 extends React.Component {
 
   validateMe = () => {
     // document.getElementById("")
-    console.log("test");
+    // console.log("test");
     if (
       document.getElementById("firstName").value === "" ||
       document.getElementById("awakeTime").value === ""
     ) {
       alert("Uh oh, make sure both fields are filled, and try again!");
-    } else {
+    } else if (ValidateString(document.getElementById("firstName").value)) {
+      alert("No numbers allowed in your name, try again...");
+    } else if (!regEx.test(document.getElementById("awakeTime").value)) {
+      alert("You didn't enter a number for your wakeup time...");
+    }
+    
+    else {
       this.setState({
         firstName: document.getElementById("firstName").value,
         awakeTime: document.getElementById("awakeTime").value,
@@ -52,7 +61,7 @@ class MiniChallenge2 extends React.Component {
             
               id="awakeTime"
               size="lg"
-              type="text"
+              type="time"
               placeholder="Wake up time today?"
             />
           </Form.Group>
