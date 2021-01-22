@@ -8,6 +8,7 @@ import MC1 from "../src/components/mc1/mc1";
 import MC2 from "../src/components/mc2/mc2";
 import MC3 from "../src/components/mc3/mc3";
 import MC4 from "../src/components/mc4/mc4";
+import MC5 from "../src/components/mc5/mc5";
 import NavBar from "../src/components/navBar/navBar";
 import Header from "../src/components/header/header";
 // import { Router } from "react-router-dom";
@@ -53,7 +54,7 @@ class App extends React.Component {
             <Row>
               <Col>
                 <Button onClick={this.showMenu} as={Link} to="/mc4" classes="buttonW" message="4" />
-                <Button onClick={this.showMenu} as={Link} to="" classes="buttonW" message="5" />
+                <Button onClick={this.showMenu} as={Link} to="/mc5" classes="buttonW" message="5" />
                 <Button onClick={this.showMenu} as={Link} to="" classes="buttonW" message="6" />
               </Col>
             </Row>
@@ -119,6 +120,9 @@ class App extends React.Component {
           </Route>
           <Route path="/mc4">
             <MC4 className="pb-5 mb-5" />
+          </Route>
+          <Route path="/mc5">
+            <MC5 className="pb-5 mb-5" />
           </Route>
           {/* now we need to just make sure all of these other links work */}
           {/* what happened was the props weren't getting passed to the button click */}
