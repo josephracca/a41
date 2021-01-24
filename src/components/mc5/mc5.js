@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
-import "../../App.css";
+// import "../../App.css";
 import "./mc5.css";
 import AButton from "../button/button";
 import FormField from "../formControl/formControl";
@@ -8,36 +8,36 @@ import FormField from "../formControl/formControl";
 // need to figure out how to do a .map on this one...
 
 let lib1 = [
-  {name: "Plural Noun 1"},
-  {name: "Plural Noun 2"},
-  {name: "Plural Noun 3"},
-  {name: "Plural Noun 4"},
-  {name: "Plural Noun 5"},
-  {name: "Adjective 1"},
-  {name: "Adjective 2"},
-  {name: "Noun 1"},
-  {name: "Noun 2"},
-  {name: "Noun 3"},
-  {name: "Verb 1"},
-  {name: "Verb 2"},
-  {name: "Verb 3"},
+  { name: "Plural Noun 1" },
+  { name: "Plural Noun 2" },
+  { name: "Plural Noun 3" },
+  { name: "Plural Noun 4" },
+  { name: "Plural Noun 5" },
+  { name: "Adjective 1" },
+  { name: "Adjective 2" },
+  { name: "Noun 1" },
+  { name: "Noun 2" },
+  { name: "Noun 3" },
+  { name: "Verb 1" },
+  { name: "Verb 2" },
+  { name: "Verb 3" },
 ];
 
-console.log(lib1);
+let allWords = document.getElementsByClassName("wordsAll");
+let inputWords = [];
 
 const FieldGroup = (props) => {
-  return(
+  return (
     <>
-    {lib1.map(info => 
-    <FormField {...info}/>
-      )}
-    {/* <FormField type="text" placeholder="New field" id="new" /> */}
-  </>
-  )
+      {lib1.map((info) => (
+        <FormField {...info} />
+      ))}
+      {/* <FormField type="text" placeholder="New field" id="new" /> */}
+    </>
+  );
 };
 
-console.log(FieldGroup);
-
+// console.log(FieldGroup);
 class MiniChallenge3 extends React.Component {
   constructor(props) {
     super(props);
@@ -47,33 +47,6 @@ class MiniChallenge3 extends React.Component {
       sum: false,
       result: "",
     };
-  }
-
-  compareUs() {
-    // this.setState({result: "true"});
-    // console.log(this.state.num1);
-    if (
-      parseFloat(document.getElementById("num1").value) >
-      parseFloat(document.getElementById("num2").value)
-    ) {
-      this.setState({
-        result:
-          "Your first number is greater than your second number.\n\nYour second number is less than your first number.",
-      });
-    } else if (
-      parseFloat(document.getElementById("num1").value) <
-      parseFloat(document.getElementById("num2").value)
-    ) {
-      this.setState({
-        result:
-          "Your first number is less than your second number.\n\nYour second number is less than your first number.",
-      });
-    } else {
-      this.setState({
-        result:
-          "Your first and second number are equal. Nothing to see here, folks. Move along.",
-      });
-    }
   }
 
   validateMe = () => {
@@ -87,46 +60,57 @@ class MiniChallenge3 extends React.Component {
         `Uh oh, make sure both fields are filled using NUMBERS only, and try again!`
       );
     } else {
-      // this.setState({
-      //   num1: document.getElementById("num1").value,
-      //   num2: document.getElementById("num2").value,
-      //   // sum: true,
-
-      // });
-      //call function that compares
-      this.compareUs();
+      //this needs to be able to pull all of the information from the forms...
     }
   };
 
+  readValues = () => {
+    // console.log(lib1);
+    // console.log(allWords[0].value);
+    // console.log(allWords[0]);
+
+    // allWords.forEach( element => console.log(element.value));
+
+    for (let i = 0; i < allWords.length; i++) {
+      // console.log((allWords[i].value));
+      inputWords.push(allWords[i].value);
+    }
+
+    // console.log(inputWords);
+
+    if (inputWords.includes("")) {
+      console.log("true");
+      alert("You have an empty field...");
+    } else {
+      this.setState({
+        result: `Spring is a(n) ${inputWords[0]} time of the year to plant a(n) ${inputWords[1]}, after the ${inputWords[2]} frost. First, ${inputWords[3]} the dirt using ${inputWords[4]} and ${inputWords[5]} so you can plant ${inputWords[6]}. ${inputWords[7]} ${inputWords[8]}, ${inputWords[9]} them, and watch them ${inputWords[10]} until summer or fall. ${inputWords[11]} grow in a few weeks, whereas Halloween ${inputWords[12]} may take months but it's worth the wait!`,
+      });
+    }
+  };
+
+  // generateBtn = () => {
+  //     };
+
   render() {
     return (
-      <div className="bg4">
+      <div className="bg5 slideUp">
         <Container>
           <Row>
             <Col>
-              <h1>MINI 5</h1>
+              <h1>MINI FIVE</h1>
               <p> MADLIB GEN </p>
             </Col>
           </Row>
           <Form.Group>
-            {/* <FormField type="text" placeholder="New field" id="new" /> */}
             <FieldGroup />
-            {/* dot map these */}
           </Form.Group>
-
-          {/* <Row>
-    <Col>
-    <span id="sum">SUM HERE</span>
-    </Col>
-</Row> */}
 
           <Row>
             <Col>
-              {/* <Button onClick={this.validateMe}>Judge Us!</Button> */}
               <AButton
                 variant="warning"
-                onClick={this.validateMe}
-                message="Judge Us!"
+                onClick={this.readValues}
+                message="Generate MadLib Now!"
               />
             </Col>
           </Row>
@@ -136,17 +120,11 @@ class MiniChallenge3 extends React.Component {
               <p>
                 {!this.state.result
                   ? "Waiting..."
-                  : `Verdict is: ${this.state.result}`}
+                  : `YOUR MADLIB...${this.state.result}`}
               </p>
             </Col>
           </Row>
 
-          {/* <Row>
-            <Col className="d-flex justify-content-between">
-              <Button>{`< Menu`}</Button>
-              <Button>Quit X</Button>
-            </Col>
-          </Row> */}
         </Container>
       </div>
     );

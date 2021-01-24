@@ -1,9 +1,11 @@
 .bg2{
+    /* height: 100%;
+    width: 100%; */
     background-image: url('../../images/sunset.gif');
     background-size: cover!important;
     background-position: center;
     background-repeat: none;
     color: rgb(48, 48, 48);
-    padding: 15% 20px 55% 20px;
+    padding: 15% 20px 0 20px;
     /* padding: 100px 0 100px 0; */
 }

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Galindo&display=swap');
 
 body {
   margin: 0;
@@ -9,11 +10,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: url('../src/images/retroMenuBG.png') no-repeat center center fixed;
   background-size: cover!important;
-  font-family: 'Press Start 2P', cursive!important;
+  /* font-family: 'Press Start 2P', cursive!important; */
   /* font-weight: 700!important; */
   font-size: 16px!important;
   line-height: 20px!important;
   text-align: center!important;
+  /* font-family: 'Lilita One', cursive; */
+  font-family: 'Galindo', cursive!important;
+
+
 }
 
 code {

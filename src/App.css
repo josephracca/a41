@@ -1,6 +1,13 @@
 .App {
   text-align: center;
   padding-top: 50px;
+  /* z-index: 999; */
+  background: url('./images/retroMenuBG.png') no-repeat center center fixed;
+  background-size: cover!important;
+}
+
+.mainBG{
+
 }
 
 .App-logo {
@@ -39,19 +46,61 @@
 }
 
 .buttonW{
-  width: 25%;
+  /* width: 25%; */
+  width: 100px;
+  height: 100px;
   background-color: rgb(255, 196, 0)!important;
   color: black!important;
   border-style: none!important;
   margin: 5px;
-  font-size: 20px!important;
+  font-size:65px!important;
+  border-radius: 50%!important;
+}
+
+.gray{
+  /* width: 25%; */
+  min-width: 100px;
+  height: 100px;
+  background-color: rgb(177, 177, 177)!important;
+  color: black!important;
+  border-style: none!important;
+  margin: 5px;
+  font-size:35px!important;
+  border-radius: 50%!important;
+
+}
+
+.gray:hover, .buttonW:hover{
+  /* width: 25%; */
+  background-color: rgb(34, 33, 32)!important;
+  color: rgb(255, 255, 255)!important;
+  border-style: none!important;
+  margin: 5px;
+  border-radius: 50%!important;
 }
 
 .title{
-  font-size: 80px;
-  line-height: 90px;
+  font-size: 150px;
+  line-height: 130px; 
 }
 
 .space{
   padding: 100px 0 100px 0;
+}
+
+h1{
+  font-size: 100px!important;
+  line-height: 90px!important;
+}
+
+/* .centered{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.height100{
+  height: 100vh;
 }

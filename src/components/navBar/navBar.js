@@ -1,6 +1,5 @@
-import App from "../../App";
 import "../navBar/navBar.css"
-import Music from "../../audio/All_Or_Nothing.mp3"
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 
 //navbar stick to base of screen
@@ -8,8 +7,6 @@ import {
   Container,
   Col,
   Row,
-  OverlayTrigger,
-  Popover,
   Button,
 } from "react-bootstrap";
 import "./navBar.css";
@@ -32,58 +29,23 @@ let showMenu = function(){
 }
 
 const NavBar = () => {
+  const refreshPage = () => {
+    window.location.reload();
+  }
+
   return (
-    <>
+    <><Router>
       <Container fluid className="bgBar">
         <Row>
-          <Col>{refresh}</Col>
-          <Col><Button onClick={showMenu}>{home}</Button></Col>
+          <Col><Button variant="dark" onClick={refreshPage}>{refresh}</Button></Col>
+          <Col><Button variant="dark" onClick={showMenu}>{home}</Button></Col>
           {/* //need to have this be able to REMOVE ONLY the "d-none" from className*/}
           <Col>
-            <OverlayTrigger
-              trigger="click"
-              key={"top"}
-              placement={"top"}
-              overlay={
-                <Popover id={`popover-positioned-${"top"}`}>
-                  <Popover.Title as="h3">{`OPTIONS`}</Popover.Title>
-                  <Popover.Content>
-                    {/* <strong>You like to change things up, huh?</strong> */}
-                    {/* <br /> */}
-                     {/* + auditory
-                            stimulus! */}
-                    <figure>
-                      <span>
-                        <figcaption>
-                          <p>
-                            {" "}
-                            <i class="fas fa-volume-up"></i> + auditory
-                            stimulus!
-                          </p>
-                        </figcaption>
-                        <audio controls src={Music} autoplay>
-                          Your browser does not support the
-                          <code>audio</code> element.
-                        </audio>
-                      </span>
-                      <figcaption>
-                        <p>
-                          <i class="fas fa-music"></i> by{" "}
-                          <a href="https://www.youtube.com/watch?v=NGv-ta9eFbs">
-                          Sanny D.
-                          </a>
-                        </p>
-                      </figcaption>
-                    </figure>
-                  </Popover.Content>
-                </Popover>
-              }
-            >
-              <Button variant="dark">{options}</Button>
-            </OverlayTrigger>
+              <Button variant="dark" as={Link} to="/options">{options}</Button>
           </Col>
         </Row>
       </Container>
+      </Router>
     </>
   );
 };

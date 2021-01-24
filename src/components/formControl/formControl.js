@@ -4,7 +4,7 @@ const FormField = (props) => {
   return (
     <>
       <Form.Control
-        className="mt-3"
+        className="mt-3 wordsAll"
         id={props.name}
         size="md"
         type="text"

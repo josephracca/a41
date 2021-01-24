@@ -41,8 +41,8 @@ class MiniChallenge2 extends React.Component {
 
   render() {
     return (
-      <div className="bg2">
-        <Container>
+      <div className="bg2 slideUp">
+        <Container className="height100">
           <Row>
             <Col>
             <h1>MINI 2</h1>

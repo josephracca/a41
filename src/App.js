@@ -9,106 +9,144 @@ import MC2 from "../src/components/mc2/mc2";
 import MC3 from "../src/components/mc3/mc3";
 import MC4 from "../src/components/mc4/mc4";
 import MC5 from "../src/components/mc5/mc5";
+import Options from "../src/components/options/options";
 import NavBar from "../src/components/navBar/navBar";
 import Header from "../src/components/header/header";
+import Logo from "../src/components/logo/logo";
 // import { Router } from "react-router-dom";
 import React from "react";
-import Music from "./audio/All_Or_Nothing.mp3"
+import "./wickedcss.min.css";
 
-
-import logo from "./images/JR_Logo.png";
+// import logo from "./images/JR_Logo.png";
 
 //import react router dom
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state ={
-
-    }
+    this.state = {};
   }
 
-  showMenu(){
-    document.getElementById("home").className === "App d-none" ? document.getElementById("home").className = "App" : document.getElementById("home").className = "App d-none";
-    console.log('test');
+  showMenu() {
+    document.getElementById("home").className === "App d-none"
+      ? (document.getElementById("home").className = "App")
+      : (document.getElementById("home").className = "App d-none");
+    console.log("test");
   }
 
-  render(){
+  render() {
     return (
       <Router>
-        <div id="home" className="App">
+        <div id="home" className="App mainBG">
           <Container className="mt-2">
-            <Row>
-              <Col>
-                <span className="title">ALL FOR ONE</span>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Button onClick={this.showMenu} as={Link} to="/mc1" classes="buttonW" message="1" />
-                <Button onClick={this.showMenu} as={Link} to="/mc2" classes="buttonW" message="2" />
-                <Button onClick={this.showMenu} as={Link} to="/mc3" classes="buttonW" message="3" />
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Button onClick={this.showMenu} as={Link} to="/mc4" classes="buttonW" message="4" />
-                <Button onClick={this.showMenu} as={Link} to="/mc5" classes="buttonW" message="5" />
-                <Button onClick={this.showMenu} as={Link} to="" classes="buttonW" message="6" />
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Button onClick={this.showMenu} as={Link} to="" classes="buttonW" message="7" />
-                <Button onClick={this.showMenu} as={Link} to="" classes="buttonW" message="8" />
-                <Button onClick={this.showMenu} as={Link} to="" classes="buttonW" message="9" />
-              </Col>
-            </Row>
-            <Row className="my-5 space">
-              <Col>
-                <span className="credits">
-                  joseph
-                  <img src={logo} alt="Logo" className="width" />
-                  racca
-                </span>
-              </Col>
-            </Row>
             <Row className="mb-5">
-              <Col className="mb-5">
-              <figure>
-                      <span>
-                        <figcaption>
-                          <p>
-                            {" "}
-                            <i class="fas fa-volume-up"></i> + auditory
-                            stimulus!
-                          </p>
-                        </figcaption>
-                        <audio controls src={Music} autoplay>
-                          Your browser does not support the
-                          <code>audio</code> element.
-                        </audio>
-                      </span>
-                      <figcaption>
-                        <p>
-                          <i class="fas fa-music"></i> by{" "}
-                          <a href="https://www.youtube.com/watch?v=NGv-ta9eFbs">
-                          Sanny D.
-                          </a>
-                        </p>
-                      </figcaption>
-                    </figure>
+              <Col>
+                <Row className="wiggle">
+                  <Col>
+                    <span className="title">ALL FOR ONE</span>
+                  </Col>
+                </Row>
+                <Row className="">
+                  <Col>
+                    a tiny, yet reactive, collection of
+                    <br />
+                    MINI CHALLENGES
+                  </Col>
+                </Row>
               </Col>
             </Row>
+            <Row>
+              <Col>
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to="/mc1"
+                  classes="buttonW pulse"
+                  message="1"
+                />
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to="/mc2"
+                  classes="buttonW pulse"
+                  message="2"
+                />
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to="/mc3"
+                  classes="buttonW pulse"
+                  message="3"
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to="/mc4"
+                  classes="buttonW pulse"
+                  message="4"
+                />
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to="/mc5"
+                  classes="buttonW pulse"
+                  message="5"
+                />
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to=""
+                  classes="buttonW pulse"
+                  message="6"
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to=""
+                  classes="buttonW pulse"
+                  message="7"
+                />
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to=""
+                  classes="buttonW pulse"
+                  message="8"
+                />
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to=""
+                  classes="buttonW pulse"
+                  message="9"
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Button
+                  onClick={this.showMenu}
+                  as={Link}
+                  to="/options"
+                  classes="gray pulse"
+                  message="options"
+                />
+              </Col>
+            </Row>
+            <Logo />
           </Container>
-          {/* <MC1 /> */}
         </div>
 
         <Switch>
-          {/* <Route path="/list">
-            <RenderList />
-          </Route> */}
           <Route path="/mc1">
             <MC1 className="pb-5 mb-5" />
           </Route>
@@ -124,19 +162,14 @@ class App extends React.Component {
           <Route path="/mc5">
             <MC5 className="pb-5 mb-5" />
           </Route>
-          {/* now we need to just make sure all of these other links work */}
-          {/* what happened was the props weren't getting passed to the button click */}
+          <Route path="/options">
+            <Options className="pb-5 mb-5" />
+          </Route>
         </Switch>
         <NavBar />
       </Router>
     );
-    // function RenderList() {
-    //   // return <MC1 />;
-    // }
   }
-
-
-  
 }
 
 export default App;
