@@ -4,6 +4,7 @@
     position: fixed;
     top: 0px;
     /* height: 50px; */
+    z-index: 1000;
 }
 
 .width{
@@ -13,4 +14,5 @@
 .credits{
     font-size: 15px;
     color: white;
+    letter-spacing: 4px;
 }

@@ -8,19 +8,19 @@ import FormField from "../formControl/formControl";
 // need to figure out how to do a .map on this one...
 
 let lib1 = [
-  { name: "Plural Noun 1" },
-  { name: "Plural Noun 2" },
-  { name: "Plural Noun 3" },
-  { name: "Plural Noun 4" },
-  { name: "Plural Noun 5" },
-  { name: "Adjective 1" },
-  { name: "Adjective 2" },
-  { name: "Noun 1" },
-  { name: "Noun 2" },
-  { name: "Noun 3" },
-  { name: "Verb 1" },
-  { name: "Verb 2" },
-  { name: "Verb 3" },
+  { type: "text", name: "Plural Noun 1" },
+  { type: "text", name: "Plural Noun 2" },
+  { type: "text", name: "Plural Noun 3" },
+  { type: "text", name: "Plural Noun 4" },
+  { type: "text", name: "Plural Noun 5" },
+  { type: "text", name: "Adjective 1" },
+  { type: "text", name: "Adjective 2" },
+  { type: "text", name: "Noun 1" },
+  { type: "text", name: "Noun 2" },
+  { type: "text", name: "Noun 3" },
+  { type: "text", name: "Verb 1" },
+  { type: "text", name: "Verb 2" },
+  { type: "text", name: "Verb 3" },
 ];
 
 let allWords = document.getElementsByClassName("wordsAll");
@@ -38,7 +38,7 @@ const FieldGroup = (props) => {
 };
 
 // console.log(FieldGroup);
-class MiniChallenge3 extends React.Component {
+class MiniChallenge5 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -131,4 +131,4 @@ class MiniChallenge3 extends React.Component {
   }
 }
 
-export default MiniChallenge3;
+export default MiniChallenge5;

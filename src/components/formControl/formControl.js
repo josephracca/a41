@@ -6,8 +6,8 @@ const FormField = (props) => {
       <Form.Control
         className="mt-3 wordsAll"
         id={props.name}
-        size="md"
-        type="text"
+        size={props.size}
+        type={props.type}
         placeholder={props.name}
       />
     </>

@@ -22,8 +22,7 @@ const Header = () => {
       <Container fluid className="bgBarLight">
         <Row>
           <Col>
-          <span className="credits">joseph<img src={logo} alt="Logo" className="width"/>racca</span>
-          <span className="credits">A41</span>
+          <span className="credits">JOSEPH<img src={logo} alt="Logo" className="width"/>RACCA</span>
           </Col>
         </Row>
       </Container>

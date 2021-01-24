@@ -9,6 +9,7 @@ import MC2 from "../src/components/mc2/mc2";
 import MC3 from "../src/components/mc3/mc3";
 import MC4 from "../src/components/mc4/mc4";
 import MC5 from "../src/components/mc5/mc5";
+import MC6 from "../src/components/mc6/mc6";
 import Options from "../src/components/options/options";
 import NavBar from "../src/components/navBar/navBar";
 import Header from "../src/components/header/header";
@@ -38,11 +39,12 @@ class App extends React.Component {
   render() {
     return (
       <Router>
+        <Header />
         <div id="home" className="App mainBG">
-          <Container className="mt-2">
+          <Container className="mt-5">
             <Row className="mb-5">
               <Col>
-                <Row className="wiggle">
+                <Row className="wiggle mt-5">
                   <Col>
                     <span className="title">ALL FOR ONE</span>
                   </Col>
@@ -100,7 +102,7 @@ class App extends React.Component {
                 <Button
                   onClick={this.showMenu}
                   as={Link}
-                  to=""
+                  to="/mc6"
                   classes="buttonW pulse"
                   message="6"
                 />
@@ -142,7 +144,7 @@ class App extends React.Component {
                 />
               </Col>
             </Row>
-            <Logo />
+            {/* <Logo /> */}
           </Container>
         </div>
 
@@ -161,6 +163,9 @@ class App extends React.Component {
           </Route>
           <Route path="/mc5">
             <MC5 className="pb-5 mb-5" />
+          </Route>
+          <Route path="/mc6">
+            <MC6 className="pb-5 mb-5" />
           </Route>
           <Route path="/options">
             <Options className="pb-5 mb-5" />

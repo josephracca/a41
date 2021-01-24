@@ -1,0 +1,14 @@
+.bg6{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../images/PnkSky.png');
+    background-size: cover!important;
+    background-position: center!important;
+    background-repeat: none!important;
+    color: rgb(56, 56, 56);
+    padding: 5% 20px 65% 20px;
+    /* height: 100%; */
+    /* padding: 100px 0 100px 0; */
+    /* padding-bottom: 100px; */
+}
