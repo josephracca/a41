@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
-import "../../App.css";
-import "./mc1.css";
+
 import ValidateString from "../validation/validation";
+
+// import "../../App.css";
+import "./mc1.css";
 
 class MiniChallenge1 extends React.Component {
   constructor(props) {
@@ -15,21 +17,28 @@ class MiniChallenge1 extends React.Component {
   }
 
   validateMe = () => {
-    // document.getElementById("")
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
 
-    let firstName = document.getElementById("firstName").value;
-    let lastName = document.getElementById("lastName").value;
+    this.setState({
+      firstName: firstName,
+      lastName: lastName,
+    });
 
     console.log("test");
     if (firstName === "" || lastName === "") {
-      alert("Uh oh, make sure both fields are filled, and try again!");
+      this.setState({
+        message: "Uh oh, make sure both fields are filled, and try again!",
+      });
     } else if (ValidateString(firstName) || ValidateString(lastName)) {
-      alert("Uh oh, no numbers allowed!");
+      this.setState({
+        message: "Uh oh, no numbers allowed!",
+      });
     } else {
       this.setState({
         firstName: firstName,
         lastName: lastName,
-        message: "Uh oh, try again!",
+        message: `Hello, ${firstName} ${lastName}!`,
       });
     }
   };
@@ -66,13 +75,10 @@ class MiniChallenge1 extends React.Component {
               <Button onClick={this.validateMe}>Submit!</Button>
             </Col>
           </Row>
-
           <Row className="my-5 pulse">
             <Col>
               <h2>
-              {!this.state.message
-                ? "waiting..."
-                : `Hello, ${this.state.firstName} ${this.state.lastName}!`}
+                {!this.state.message ? "waiting..." : `${this.state.message}`}
               </h2>
             </Col>
           </Row>

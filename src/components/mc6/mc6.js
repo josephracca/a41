@@ -17,18 +17,18 @@ class MiniChallenge6 extends React.Component {
   }
 
   validateMe = () => {
-    // console.log(numInput.value);
-    let numInput = document.getElementById("Your Number...");
+    let numInput = document.getElementById("Your Number...").value;
+    let lastDigit = numInput[numInput.length-1];
 
-    if (!numInput.value) {
-      alert(`You had one job...just give me any number.`);
+    console.log(lastDigit);
+
+    if (!numInput) {
+      this.setState({result: `You had one job...just give me any REAL number.`});
     } else {
-      console.log(numInput.value);
-
-      if (Math.abs(numInput.value % 2) === 1) {
-        this.setState({ result: `${numInput.value} is an odd number.` });
+      if (Math.abs(lastDigit % 2) === 1) {
+        this.setState({ result: `${numInput} is an odd number.` });
       } else {
-        this.setState({ result: `${numInput.value} is an even number.` });
+        this.setState({ result: `${numInput} is an even number.` });
       }
     }
   };
@@ -75,11 +75,11 @@ class MiniChallenge6 extends React.Component {
 
           <Row className="my-3">
             <Col>
-              <p>
+              <h2>
                 {!this.state.result
                   ? "Waiting..."
-                  : `Beep boop...check returns...${this.state.result}`}
-              </p>
+                  : `Beep boop...${this.state.result}`}
+              </h2>
             </Col>
           </Row>
         </Container>

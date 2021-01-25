@@ -43,8 +43,8 @@ class App extends React.Component {
         <Header />
         
         <div id="home" className="App mainBG slideUp">
-          <Container fluid className="mt-5">
-            <Row className="mb-5">
+          <Container fluid className="mt-5 smallWidth">
+            <Row className="mb-1">
               <Col>
                 <Row className="wiggle mt-5">
                   <Col>
@@ -53,9 +53,9 @@ class App extends React.Component {
                 </Row>
                 <Row className="">
                   <Col>
-                    a tiny, yet reactive, collection of
+                    <h3>A TiNy, YeT ReAcTiVe
                     <br />
-                    MINI CHALLENGES
+                    ColL3cti0n of miNi CHaLLeNgeS</h3>
                   </Col>
                 </Row>
               </Col>

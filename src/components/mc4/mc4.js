@@ -4,7 +4,7 @@ import "../../App.css";
 import "./mc4.css";
 import AButton from "../button/button";
 
-class MiniChallenge3 extends React.Component {
+class MiniChallenge4 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,53 +15,35 @@ class MiniChallenge3 extends React.Component {
     };
   }
 
-  compareUs() {
-    // this.setState({result: "true"});
-    // console.log(this.state.num1);
-    if (
-      parseFloat(document.getElementById("num1").value) >
-      parseFloat(document.getElementById("num2").value)
-    ) {
+  compareUs(x, y) {
+
+    if (parseFloat(x) > parseFloat(y)) {
       this.setState({
         result:
-          "Your first number is greater than your second number.\n\nYour second number is less than your first number.",
+          `${x} is greater than ${y}, which means ${y} is less than ${x}. Uh, duh!`,
       });
-    } else if (
-      parseFloat(document.getElementById("num1").value) <
-      parseFloat(document.getElementById("num2").value)
-    ) {
+    } else if (parseFloat(x) < parseFloat(y)) {
       this.setState({
         result:
-          "Your first number is less than your second number.\n\nYour second number is less than your first number.",
+          `${x} is less than ${y}, which means ${y} is greater than ${x}. Uh, duh!`,
       });
     } else {
       this.setState({
         result:
-          "Your first and second number are equal. Nothing to see here, folks. Move along.",
+          `When two numbers are the same, that makes them equal. Nothing else to see here, folks. Move along...`,
       });
     }
   }
 
-
   validateMe = () => {
-    // document.getElementById("")
-    // console.log("test");
-    if (
-      document.getElementById("num1").value === "" ||
-      document.getElementById("num2").value === ""
-    ) {
-      alert(
-        `Uh oh, make sure both fields are filled using NUMBERS only, and try again!`
-      );
+    const nums1 = document.getElementById("num1").value;
+    const nums2 = document.getElementById("num2").value;
+    if (nums1 === "" || nums2 === "") {
+      this.setState({
+        result: `Uh oh, make sure both fields are filled, and try again!`,
+      });
     } else {
-      // this.setState({
-      //   num1: document.getElementById("num1").value,
-      //   num2: document.getElementById("num2").value,
-      //   // sum: true,
-
-      // });
-      //call function that compares
-      this.compareUs();
+      this.compareUs(nums1, nums2);
     }
   };
 
@@ -91,15 +73,8 @@ class MiniChallenge3 extends React.Component {
             />
           </Form.Group>
 
-          {/* <Row>
-    <Col>
-    <span id="sum">SUM HERE</span>
-    </Col>
-</Row> */}
-
           <Row>
             <Col>
-              {/* <Button onClick={this.validateMe}>Judge Us!</Button> */}
               <AButton
                 variant="warning"
                 onClick={this.validateMe}
@@ -118,16 +93,10 @@ class MiniChallenge3 extends React.Component {
             </Col>
           </Row>
 
-          {/* <Row>
-            <Col className="d-flex justify-content-between">
-              <Button>{`< Menu`}</Button>
-              <Button>Quit X</Button>
-            </Col>
-          </Row> */}
         </Container>
       </div>
     );
   }
 }
 
-export default MiniChallenge3;
+export default MiniChallenge4;
