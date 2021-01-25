@@ -36,10 +36,11 @@ class MiniChallenge1 extends React.Component {
 
   render() {
     return (
-      <div className="bg slideUp">
-        <Container className="centered height100">
+      <div className="bg slideUp height100">
+        <Container className="centered">
           <h1>MINI 1</h1>
-          <p>Welcome!</p>
+          <h2>Welcome!</h2>
+          <h3>Tell me a little about yourself...</h3>
           <Row>
             <Col>
               {" "}
@@ -66,11 +67,13 @@ class MiniChallenge1 extends React.Component {
             </Col>
           </Row>
 
-          <Row className="my-5">
+          <Row className="my-5 pulse">
             <Col>
+              <h2>
               {!this.state.message
                 ? "waiting..."
                 : `Hello, ${this.state.firstName} ${this.state.lastName}!`}
+              </h2>
             </Col>
           </Row>
         </Container>

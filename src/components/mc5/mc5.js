@@ -7,7 +7,7 @@ import FormField from "../formControl/formControl";
 
 // need to figure out how to do a .map on this one...
 
-let lib1 = [
+const lib1 = [
   { type: "text", name: "Plural Noun 1" },
   { type: "text", name: "Plural Noun 2" },
   { type: "text", name: "Plural Noun 3" },
@@ -23,8 +23,8 @@ let lib1 = [
   { type: "text", name: "Verb 3" },
 ];
 
-let allWords = document.getElementsByClassName("wordsAll");
-let inputWords = [];
+const allWords = document.getElementsByClassName("wordsAll");
+const inputWords = [];
 
 const FieldGroup = (props) => {
   return (
@@ -32,12 +32,9 @@ const FieldGroup = (props) => {
       {lib1.map((info) => (
         <FormField {...info} />
       ))}
-      {/* <FormField type="text" placeholder="New field" id="new" /> */}
     </>
   );
 };
-
-// console.log(FieldGroup);
 class MiniChallenge5 extends React.Component {
   constructor(props) {
     super(props);
@@ -50,8 +47,6 @@ class MiniChallenge5 extends React.Component {
   }
 
   validateMe = () => {
-    // document.getElementById("")
-    // console.log("test");
     if (
       document.getElementById("num1").value === "" ||
       document.getElementById("num2").value === ""
@@ -60,23 +55,13 @@ class MiniChallenge5 extends React.Component {
         `Uh oh, make sure both fields are filled using NUMBERS only, and try again!`
       );
     } else {
-      //this needs to be able to pull all of the information from the forms...
     }
   };
 
   readValues = () => {
-    // console.log(lib1);
-    // console.log(allWords[0].value);
-    // console.log(allWords[0]);
-
-    // allWords.forEach( element => console.log(element.value));
-
     for (let i = 0; i < allWords.length; i++) {
-      // console.log((allWords[i].value));
       inputWords.push(allWords[i].value);
     }
-
-    // console.log(inputWords);
 
     if (inputWords.includes("")) {
       console.log("true");
@@ -88,19 +73,18 @@ class MiniChallenge5 extends React.Component {
     }
   };
 
-  // generateBtn = () => {
-  //     };
-
   render() {
     return (
       <div className="bg5 slideUp">
-        <Container>
+        <Container className="mb-5 endOftheRoad">
+
           <Row>
             <Col>
-              <h1>MINI FIVE</h1>
-              <p> MADLIB GEN </p>
+              <h1>MINI 5</h1>
+              <h2> MADLIB GENERATOR </h2>
             </Col>
           </Row>
+
           <Form.Group>
             <FieldGroup />
           </Form.Group>
@@ -115,7 +99,7 @@ class MiniChallenge5 extends React.Component {
             </Col>
           </Row>
 
-          <Row className="my-3">
+          <Row className="my-5">
             <Col>
               <p>
                 {!this.state.result
@@ -124,7 +108,6 @@ class MiniChallenge5 extends React.Component {
               </p>
             </Col>
           </Row>
-
         </Container>
       </div>
     );

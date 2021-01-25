@@ -72,7 +72,7 @@ class MiniChallenge3 extends React.Component {
           <Row>
             <Col>
               <h1>MINI 4</h1>
-              <p> greater than or equal to </p>
+              <h2> greater than or equal to </h2>
             </Col>
           </Row>
           <Form.Group>

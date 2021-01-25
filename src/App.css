@@ -2,8 +2,8 @@
   text-align: center;
   padding-top: 50px;
   /* z-index: 999; */
-  background: url('./images/retroMenuBG.png') no-repeat center center fixed;
-  background-size: cover!important;
+  /* background: url('./images/retroMenuBG.png') no-repeat center center fixed;
+  background-size: cover!important; */
 }
 
 .App-logo {
@@ -43,13 +43,13 @@
 
 .buttonW{
   /* width: 25%; */
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background-color: rgb(255, 196, 0)!important;
   color: black!important;
   border-style: none!important;
   margin: 5px;
-  font-size:65px!important;
+  font-size:5rem!important;
   border-radius: 50%!important;
 }
 
@@ -57,16 +57,33 @@
   /* width: 25%; */
   min-width: 100px;
   height: 100px;
-  background-color: rgb(177, 177, 177)!important;
-  color: black!important;
+  background-color: rgb(29, 29, 29)!important;
+  color: rgb(255, 187, 0)!important;
   border-style: none!important;
   margin: 5px;
   font-size:35px!important;
   border-radius: 50%!important;
+  line-height: 85px!important;
+  margin-bottom: 200px;
 
 }
 
-.gray:hover, .buttonW:hover{
+.gray:hover{
+  /* width: 25%; */
+  min-width: 100px;
+  height: 100px;
+  background-color: rgb(66, 66, 66)!important;
+  color: rgb(32, 136, 161)!important;
+  border-style: none!important;
+  margin: 5px;
+  font-size:35px!important;
+  border-radius: 50%!important;
+  line-height: 85px!important;
+  margin-bottom: 200px;
+
+}
+
+.buttonW:hover{
   /* width: 25%; */
   background-color: rgb(34, 33, 32)!important;
   color: rgb(255, 255, 255)!important;
@@ -76,8 +93,8 @@
 }
 
 .title{
-  font-size: 150px;
-  line-height: 130px; 
+  font-size: 9.5rem;
+  line-height: 8rem; 
 }
 
 .space{
@@ -85,8 +102,19 @@
 }
 
 h1{
-  font-size: 100px!important;
-  line-height: 90px!important;
+  font-size: 6rem!important;
+  line-height: 4rem!important;
+}
+
+h2{
+  font-size: 2rem!important;
+  line-height: 3rem!important;
+}
+
+h3{
+  font-size: 1.25rem!important;
+  line-height: 30px!important;
+  padding-bottom: 30px;
 }
 
 /* .centered{

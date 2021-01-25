@@ -1,9 +1,9 @@
 import React from "react";
-import { Form, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 // import "../../App.css";
 import "./options.css";
-import AButton from "../button/button";
-import FormField from "../formControl/formControl";
+// import AButton from "../button/button";
+// import FormField from "../formControl/formControl";
 import Music from "../../audio/All_Or_Nothing.mp3";
 
 
@@ -11,15 +11,15 @@ import Music from "../../audio/All_Or_Nothing.mp3";
 
 
 // console.log(FieldGroup);
-class MiniChallenge3 extends React.Component {
+class OptionsPage extends React.Component {
 
   render() {
     return (
-      <div className="bg5 slideUp">
+      <div className="bgOpt slideUp height100">
         <Container>
           <Row>
             <Col>
-              <h1>OPTIONS</h1>
+              <h2>OPTIONS</h2>
               <p> MADLIB GEN </p>
             </Col>
           </Row>
@@ -56,4 +56,4 @@ class MiniChallenge3 extends React.Component {
   }
 }
 
-export default MiniChallenge3;
+export default OptionsPage;

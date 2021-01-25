@@ -46,12 +46,12 @@ class MiniChallenge6 extends React.Component {
 
   render() {
     return (
-      <div className="bg6 slideUp">
+      <div className="bg6 slideUp height100">
         <Container>
           <Row>
             <Col>
-              <h1>MINI SIX</h1>
-              <p> ODD'R EVEN </p>
+              <h1>MINI 6</h1>
+              <h2> ODD'R EVEN </h2>
             </Col>
           </Row>
           <Form.Group>

@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import "../../App.css";
 import "./mc2.css";
-import ValidateString from '../validation/validation'
+import ValidateString from "../validation/validation";
 
 let regEx = /[0-9]/;
 
@@ -28,9 +28,7 @@ class MiniChallenge2 extends React.Component {
       alert("No numbers allowed in your name, try again...");
     } else if (!regEx.test(document.getElementById("awakeTime").value)) {
       alert("You didn't enter a number for your wakeup time...");
-    }
-    
-    else {
+    } else {
       this.setState({
         firstName: document.getElementById("firstName").value,
         awakeTime: document.getElementById("awakeTime").value,
@@ -41,13 +39,13 @@ class MiniChallenge2 extends React.Component {
 
   render() {
     return (
-      <div className="bg2 slideUp">
-        <Container className="height100">
+      <div className="bg2 slideUp height100">
+        <Container>
           <Row>
             <Col>
-            <h1>MINI 2</h1>
-        <p>rise+grind</p>
-        </Col>
+              <h1>MINI 2</h1>
+              <h2>rise+grind</h2>
+            </Col>
           </Row>
           <Form.Group>
             <Form.Control
@@ -58,7 +56,6 @@ class MiniChallenge2 extends React.Component {
               className="mb-3"
             />
             <Form.Control
-            
               id="awakeTime"
               size="lg"
               type="time"
@@ -71,11 +68,13 @@ class MiniChallenge2 extends React.Component {
             </Col>
           </Row>
 
-          <Row className="my-3">
+          <Row className="my-3 pulse">
             <Col>
-              {!this.state.message
-                ? "Waiting..."
-                : `Good morrow, ${this.state.firstName}! You woke up at ${this.state.awakeTime}!? (Relatively late...)`}
+              <h2>
+                {!this.state.message
+                  ? "Waiting..."
+                  : `Good morrow, ${this.state.firstName}! You woke up at ${this.state.awakeTime}!? (Relatively late...)`}
+              </h2>
             </Col>
           </Row>
 

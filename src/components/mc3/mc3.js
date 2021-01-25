@@ -37,7 +37,7 @@ class MiniChallenge3 extends React.Component {
           <Row>
             <Col>
             <h1>MINI 3</h1>
-        <p>mini sum thing</p>
+        <h2>mini sum thing</h2>
         </Col>
           </Row>
           <Form.Group>
@@ -69,7 +69,7 @@ class MiniChallenge3 extends React.Component {
             </Col>
           </Row>
 
-          <Row className="my-3">
+          <Row className="my-3 pulse">
             <Col>
               <h2>{!this.state.sum
                 ? "Waiting..."

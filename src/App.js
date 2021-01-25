@@ -13,7 +13,7 @@ import MC6 from "../src/components/mc6/mc6";
 import Options from "../src/components/options/options";
 import NavBar from "../src/components/navBar/navBar";
 import Header from "../src/components/header/header";
-import Logo from "../src/components/logo/logo";
+// import Logo from "../src/components/logo/logo";
 // import { Router } from "react-router-dom";
 import React from "react";
 import "./wickedcss.min.css";
@@ -39,9 +39,11 @@ class App extends React.Component {
   render() {
     return (
       <Router>
+        {/* <Options className="d-none" /> */}
         <Header />
-        <div id="home" className="App mainBG">
-          <Container className="mt-5">
+        
+        <div id="home" className="App mainBG slideUp">
+          <Container fluid className="mt-5">
             <Row className="mb-5">
               <Col>
                 <Row className="wiggle mt-5">
@@ -60,7 +62,16 @@ class App extends React.Component {
             </Row>
             <Row>
               <Col>
-                <Button
+                {utils.range(1, 9).map((element) => (
+                  <Button
+                    onClick={this.showMenu}
+                    as={Link}
+                    to={`/mc${element}`}
+                    classes="buttonW pulse"
+                    message={`${element}`}
+                  />
+                ))}
+                {/* <Button
                   onClick={this.showMenu}
                   as={Link}
                   to="/mc1"
@@ -80,10 +91,10 @@ class App extends React.Component {
                   to="/mc3"
                   classes="buttonW pulse"
                   message="3"
-                />
+                /> */}
               </Col>
             </Row>
-            <Row>
+            {/* <Row>
               <Col>
                 <Button
                   onClick={this.showMenu}
@@ -132,7 +143,7 @@ class App extends React.Component {
                   message="9"
                 />
               </Col>
-            </Row>
+            </Row> */}
             <Row>
               <Col>
                 <Button
@@ -144,6 +155,7 @@ class App extends React.Component {
                 />
               </Col>
             </Row>
+            
             {/* <Logo /> */}
           </Container>
         </div>
@@ -151,6 +163,7 @@ class App extends React.Component {
         <Switch>
           <Route path="/mc1">
             <MC1 className="pb-5 mb-5" />
+            <Header />
           </Route>
           <Route path="/mc2">
             <MC2 className="pb-5 mb-5" />
@@ -172,9 +185,15 @@ class App extends React.Component {
           </Route>
         </Switch>
         <NavBar />
+        
       </Router>
     );
   }
 }
+
+const utils = {
+  random: (min, max) => min + Math.floor(Math.random() * (max - min + 1)),
+  range: (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i),
+};
 
 export default App;
