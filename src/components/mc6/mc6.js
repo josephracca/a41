@@ -1,12 +1,8 @@
 import React from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
-// import "../../App.css";
 import "./mc6.css";
 import AButton from "../button/button";
 import FormField from "../formControl/formControl";
-
-// need to figure out how to do a .map on this one...
-
 class MiniChallenge6 extends React.Component {
   constructor(props) {
     super(props);
@@ -40,9 +36,6 @@ class MiniChallenge6 extends React.Component {
       return "is an even number.";
     }
   };
-
-  // generateBtn = () => {
-  //     };
 
   render() {
     return (

@@ -1,25 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Galindo&display=swap');
 
 body {
   margin: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url('../src/images/retroMenuBG.png') no-repeat center center fixed;
   background-size: cover!important;
-  /* font-family: 'Press Start 2P', cursive!important; */
-  /* font-weight: 700!important; */
   font-size: 100%!important;
   line-height: 20px!important;
   text-align: center!important;
-  /* font-family: 'Lilita One', cursive; */
   font-family: 'Galindo', cursive!important;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }

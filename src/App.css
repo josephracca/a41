@@ -1,90 +1,22 @@
 .App {
-  text-align: center;
   padding-top: 50px;
-  /* z-index: 999; */
-  /* background: url('./images/retroMenuBG.png') no-repeat center center fixed;
-  background-size: cover!important; */
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .buttonW{
-  /* width: 25%; */
   width: 120px;
   height: 120px;
+  margin: 5px;
+
   background-color: rgb(255, 196, 0)!important;
+  
   color: black!important;
-  border-style: none!important;
-  margin: 5px;
   font-size:5rem!important;
-  border-radius: 50%!important;
-}
 
-.gray{
-  /* width: 25%; */
-  min-width: 100px;
-  height: 100px;
-  background-color: rgb(29, 29, 29)!important;
-  color: rgb(255, 187, 0)!important;
+  border-radius: 50%!important;
   border-style: none!important;
-  margin: 5px;
-  font-size:35px!important;
-  border-radius: 50%!important;
-  line-height: 85px!important;
-  margin-bottom: 200px;
-
-}
-
-.gray:hover{
-  /* width: 25%; */
-  min-width: 100px;
-  height: 100px;
-  background-color: rgb(66, 66, 66)!important;
-  color: rgb(32, 136, 161)!important;
-  border-style: none!important;
-  margin: 5px;
-  font-size:35px!important;
-  border-radius: 50%!important;
-  line-height: 85px!important;
-  margin-bottom: 200px;
-
 }
 
 .buttonW:hover{
-  /* width: 25%; */
   background-color: rgb(34, 33, 32)!important;
   color: rgb(255, 255, 255)!important;
   border-style: none!important;
@@ -108,7 +40,7 @@ h1{
 
 h2{
   font-size: 2rem!important;
-  line-height: 3rem!important;
+  line-height: 2.55rem!important;
 }
 
 h3{
@@ -117,18 +49,23 @@ h3{
   padding-bottom: 30px;
 }
 
-/* .centered{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
 .height100{
   height: 100vh;
 }
 
 .smallWidth{
-  max-width: 800px;
+  max-width: 100%;
+}
+
+.bgOpt2{
+  background-image: url('./images/dirt.jpg');
+  background-position: center;
+  background-repeat: none;
+  color: rgb(255, 255, 255);
+  padding: 50px 0 100px 0;
+  z-index: 2000;
+}
+
+a{
+  color: rgb(255, 217, 0)!important;
 }

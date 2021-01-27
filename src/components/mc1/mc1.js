@@ -1,9 +1,6 @@
 import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
-
 import ValidateString from "../validation/validation";
-
-// import "../../App.css";
 import "./mc1.css";
 
 class MiniChallenge1 extends React.Component {
@@ -46,7 +43,7 @@ class MiniChallenge1 extends React.Component {
   render() {
     return (
       <div className="bg slideUp height100">
-        <Container className="centered">
+        <Container className="centered smallWidth">
           <h1>MINI 1</h1>
           <h2>Welcome!</h2>
           <h3>Tell me a little about yourself...</h3>

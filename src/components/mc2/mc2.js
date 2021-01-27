@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import ValidateString from "../validation/validation";
 
-// import "../../App.css";
 import "./mc2.css";
 
 let regEx = /[0-9]/;

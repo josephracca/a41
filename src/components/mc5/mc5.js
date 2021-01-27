@@ -1,32 +1,29 @@
 import React from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
-// import "../../App.css";
 import "./mc5.css";
 import AButton from "../button/button";
 import FormField from "../formControl/formControl";
 
-// need to figure out how to do a .map on this one...
-
 const lib1 = [
-  { type: "text", name: "Plural Noun 1" },
-  { type: "text", name: "Plural Noun 2" },
-  { type: "text", name: "Plural Noun 3" },
-  { type: "text", name: "Plural Noun 4" },
-  { type: "text", name: "Plural Noun 5" },
-  { type: "text", name: "Adjective 1" },
-  { type: "text", name: "Adjective 2" },
-  { type: "text", name: "Noun 1" },
-  { type: "text", name: "Noun 2" },
-  { type: "text", name: "Noun 3" },
-  { type: "text", name: "Verb 1" },
-  { type: "text", name: "Verb 2" },
+  { type: "text", name: "First Adjective" },
+  { type: "text", name: "First Noun" },
+  { type: "text", name: "Another Adjective" },
+  { type: "text", name: "First Verb" },
+  { type: "text", name: "A...Plural Noun" },
+  { type: "text", name: "A second Plural Noun" },
+  { type: "text", name: "...and a third Plural Noun" },
+  { type: "text", name: "and a fourth Plural Noun" },
+  { type: "text", name: "Next Verb" },
+  { type: "text", name: "...a second noun" },
   { type: "text", name: "Verb 3" },
+  { type: "text", name: "LAST Plural Noun" },
+  { type: "text", name: "and one last noun!" },
 ];
 
 const allWords = document.getElementsByClassName("wordsAll");
 const inputWords = [];
 
-const FieldGroup = (props) => {
+const FieldGroup = () => {
   return (
     <>
       {lib1.map((info) => (
@@ -76,7 +73,7 @@ class MiniChallenge5 extends React.Component {
   render() {
     return (
       <div className="bg5 slideUp">
-        <Container className="mb-5 endOftheRoad">
+        <Container className="endOftheRoad">
 
           <Row>
             <Col>

@@ -1,16 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-// import "../../App.css";
 import "./options.css";
-// import AButton from "../button/button";
-// import FormField from "../formControl/formControl";
-import Music from "../../audio/All_Or_Nothing.mp3";
-
+import Music from "../../audio/fireflies.mp3";
 import ReactAudioPlayer from "react-audio-player";
-
-// need to figure out how to do a .map on this one...
-
-// console.log(FieldGroup);
 class OptionsPage extends React.Component {
   render() {
     return (
