@@ -3,11 +3,10 @@
     padding: 10px;
     position: fixed;
     top: 0px;
-    /* height: 50px; */
     z-index: 1000;
 }
 
-.width{
+.logoWidth{
     width: 50px!important;
 }
 

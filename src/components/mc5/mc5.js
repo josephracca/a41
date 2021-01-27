@@ -61,7 +61,6 @@ class MiniChallenge5 extends React.Component {
     }
 
     if (inputWords.includes("")) {
-      console.log("true");
       alert("You have an empty field...");
     } else {
       this.setState({

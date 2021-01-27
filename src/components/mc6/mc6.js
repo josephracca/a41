@@ -16,8 +16,6 @@ class MiniChallenge6 extends React.Component {
     let numInput = document.getElementById("Your Number...").value;
     let lastDigit = numInput[numInput.length-1];
 
-    console.log(lastDigit);
-
     if (!numInput) {
       this.setState({result: `You had one job...just give me any REAL number.`});
     } else {

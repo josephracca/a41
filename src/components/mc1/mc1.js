@@ -22,7 +22,6 @@ class MiniChallenge1 extends React.Component {
       lastName: lastName,
     });
 
-    console.log("test");
     if (firstName === "" || lastName === "") {
       this.setState({
         message: "Uh oh, make sure both fields are filled, and try again!",

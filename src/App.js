@@ -1,9 +1,13 @@
-// import logo from "./logo.svg";
+import React from "react";
+
 import "./App.css";
 import "./index.css";
-import Button from "../src/components/button/button";
+import "./wickedcss.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Col, Row } from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+
 import MC1 from "../src/components/mc1/mc1";
 import MC2 from "../src/components/mc2/mc2";
 import MC3 from "../src/components/mc3/mc3";
@@ -11,20 +15,11 @@ import MC4 from "../src/components/mc4/mc4";
 import MC5 from "../src/components/mc5/mc5";
 import MC6 from "../src/components/mc6/mc6";
 import MC7 from "../src/components/mc7/mc7";
-// import Options from "../src/components/options/options";
+import MC8 from "../src/components/mc8/mc8";
+
+import Button from "../src/components/button/button";
 import NavBar from "../src/components/navBar/navBar";
 import Header from "../src/components/header/header";
-// import Logo from "../src/components/logo/logo";
-// import { Router } from "react-router-dom";
-import React from "react";
-import "./wickedcss.min.css";
-
-// import logo from "./images/JR_Logo.png";
-
-//import react router dom
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-// import Music from "../src/audio/All_Or_Nothing.mp3";
 import Clock from "../src/components/clock/clock";
 import Music from "../src/components/music/music";
 
@@ -38,7 +33,6 @@ class App extends React.Component {
     document.getElementById("home").className === "App d-none"
       ? (document.getElementById("home").className = "App")
       : (document.getElementById("home").className = "App d-none");
-    console.log("test");
   }
 
   render() {
@@ -81,18 +75,6 @@ class App extends React.Component {
                   ))}
                 </Col>
               </Row>
-              {/* 
-              <Row className="slideUp">
-                <Col>
-                  <Button
-                    onClick={this.showMenu}
-                    as={Link}
-                    to="/options"
-                    classes="gray"
-                    message="options"
-                  />
-                </Col>
-              </Row> */}
             </Container>
           </div>
 
@@ -119,11 +101,13 @@ class App extends React.Component {
             <Route path="/mc7">
               <MC7 className="pb-5 mb-5" />
             </Route>
+            <Route path="/mc8">
+              <MC8 className="pb-5 mb-5" />
+            </Route>
           </Switch>
           <NavBar />
         </Router>
 
-        {/* FROM ANGEL'S LECTURE */}
         <div  className="bgOpt2">
         <Container>
           <Row className="mx-5">
@@ -146,8 +130,7 @@ class App extends React.Component {
 }
 
 const utils = {
-  random: (min, max) => min + Math.floor(Math.random() * (max - min + 1)),
-  range: (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i),
+  range: (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i)
 };
 
 export default App;

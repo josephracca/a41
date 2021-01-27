@@ -8,7 +8,6 @@ import JohnMayer from "../../images/JMayer.png";
 
 class MiniChallenge7 extends React.Component {
   constructor(props) {
-    console.log("Congrats!");
     super(props);
     this.state = {
       num1: 2,
@@ -24,7 +23,6 @@ class MiniChallenge7 extends React.Component {
     if (captured === "") {
       this.setState({ result: `Nice try, but there's nothing to reverse...` });
     } else {
-      //   console.log(captured);
       let reverse = "";
 
       for (let i = captured.length - 1; i >= 0; i--) {

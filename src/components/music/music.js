@@ -1,8 +1,6 @@
 import React from "react";
 import ReactAudioPlayer from "react-audio-player";
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-import Nothing from "../../audio/fireflies.mp3";
+import Fireflies from "../../audio/fireflies.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 
@@ -38,7 +36,7 @@ class Song extends React.Component {
               <a href="https://www.youtube.com/watch?v=VPs9-2Rasyw">8-Bit Universe</a>
             </p>
         <ReactAudioPlayer
-          src={Nothing}
+          src={Fireflies}
           volume={0.006}
           autoPlay={this.state.autoPlay}
           controls={true}
@@ -48,19 +46,5 @@ class Song extends React.Component {
     );
   }
 }
-
-// function MusicPlayer() {
-//   return (
-//     <div className="pb-5 mb-5">
-//       <ReactAudioPlayer
-//         src={Music}
-//         volume={0.001}
-//         autoPlay
-//         controls={true}
-//         controlsList
-//       />
-//     </div>
-//   );
-// }
 
 export default Song;
