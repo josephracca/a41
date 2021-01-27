@@ -19,7 +19,8 @@ class MiniChallenge8 extends React.Component {
             result: "",
             randomNum: "",
             currentGame: "",
-            gameSelect: false
+            gameSelect: false,
+            theRange: ""
         };
     }
 
@@ -28,11 +29,14 @@ class MiniChallenge8 extends React.Component {
         let userGuessed = parseInt(document.getElementById("Guess here!").value);
         console.log(this.state.randomNum, userGuessed);
 
-        userGuessed !== this.state.randomNum ? this.setState({ result: "true" }) : this.setState({ result: "false" });
+        // userGuessed !== this.state.randomNum ? this.setState({ result: "true" }) : this.setState({ result: "false" });
 
-        if (!userGuessed) {
+        if (!userGuessed && userGuessed !== 0) {
             this.setState({ result: "Whoops, did you mean to leave that blank? I won't count that against you." });
 
+        }
+        else if (userGuessed < 1 || userGuessed > this.state.theRange) {
+            this.setState({ result: `"${userGuessed}" is actually um... OUT of range. To review, the number is between 1 and ${this.state.theRange}` });
         }
 
         else if (userGuessed !== this.state.randomNum) {
@@ -44,7 +48,7 @@ class MiniChallenge8 extends React.Component {
             }
             numberGuesses++;
         } else {
-            this.setState({ result: `${this.state.randomNum} is right! It took you ${numberGuesses} guess(es).` });
+            this.setState({ result: `"${this.state.randomNum}" is right! It took you ${numberGuesses} guess${numberGuesses > 1 && `es`}.` });
         }
 
         // for (let i=1000; i > 0 ; i--){
@@ -56,9 +60,11 @@ class MiniChallenge8 extends React.Component {
 
     EventHandler = (props) => {
         this.state.randomNum = Math.ceil(Math.random() * props);
+        this.state.gameSelect = true;
         this.setState({
             currentGame: `Got it! I've selected a number between 1 and ${props}...`,
-            gameSelect: true
+            result: `Start guessing!`,
+            theRange: props
         })
         if (!props) {
             alert("nothing entered for custom game!");
@@ -70,7 +76,9 @@ class MiniChallenge8 extends React.Component {
         this.setState({
             userCurrentGuess: 2,
             result: "",
-            randomNum: ""
+            randomNum: "",
+            currentGame: "",
+            gameSelect: false
         })
         console.log(this.state);
     }
@@ -100,6 +108,39 @@ class MiniChallenge8 extends React.Component {
         )
     }
 
+    ResetBtn = () => {
+        return (
+            <AButton
+                variant="danger"
+                onClick={this.ResetAll}
+                message="Start New Game"
+                classes="mt-5"
+            />
+        )
+    }
+
+    GuessingArea = () => {
+        return (
+            <>
+            <h4>{`Guess # ${numberGuesses}`}</h4>
+                <Col className="paddingTop">
+                    <FormField
+                        id="Guess here!"
+                        name="Guess here!"
+                        type="number"
+                        size="lg"
+                    />
+                    <AButton
+                        variant="warning"
+                        onClick={this.generateRand}
+                        message="Check your guess!"
+                        classes="mt-3"
+                    />
+                </Col>
+            </>
+        )
+    }
+
 
     render() {
         return (
@@ -115,35 +156,18 @@ class MiniChallenge8 extends React.Component {
                     </Row>
 
                     {!this.state.gameSelect && <this.GameChoices />}
+                    
 
                     <Row>
                         <Col>
-                            <Col className="paddingTop">
-                                <FormField
-                                    id="Guess here!"
-                                    name="Guess here!"
-                                    type="number"
-                                    size="lg"
-                                />
-                                <AButton
-                                    variant="warning"
-                                    onClick={this.generateRand}
-                                    message="Check your guess!"
-                                    classes="mt-3"
-                                />
-                            </Col>
+                        {this.state.gameSelect && <this.GuessingArea />}
                             <Col>
                                 <h2 className="pulse paddingTop">
                                     {!this.state.result
-                                        ? "Waiting for a guess..."
+                                        ? "Waiting for your game choice..."
                                         : `${this.state.result}`}
                                 </h2>
-                                {this.gameSelect && <AButton
-                                    variant="danger"
-                                    onClick={this.ResetAll}
-                                    message="Start New Game"
-                                    classes="mt-5"
-                                />}
+                                {this.state.gameSelect && <this.ResetBtn />}
                             </Col>
 
                         </Col>
