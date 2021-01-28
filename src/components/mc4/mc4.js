@@ -101,3 +101,7 @@ class MiniChallenge4 extends React.Component {
 }
 
 export default MiniChallenge4;
+
+// Pak ganern ang ganda naman yung effects nito...
+// Let's see what this one looks like...
+// this really is like sizzling with this puff of smoke coming out of the top At least you won't lose your spot when you're in VS Code jamming out to some Puff the Magic Dragon

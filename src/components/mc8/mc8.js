@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, Row, Col, ButtonGroup, Button } from "react-bootstrap";
+import { Container, Row, Col, ButtonGroup } from "react-bootstrap";
 import "./mc8.css";
 import AButton from "../button/button";
 import FormField from "../formControl/formControl";
 
 // let this.state.randomNum;
-let numberGuesses = 1;
+// let this.state.numberGuesses = 1;
 
 
 
@@ -20,7 +20,8 @@ class MiniChallenge8 extends React.Component {
             randomNum: "",
             currentGame: "",
             gameSelect: false,
-            theRange: ""
+            theRange: "",
+            numberGuesses: 1
         };
     }
 
@@ -46,9 +47,9 @@ class MiniChallenge8 extends React.Component {
             else if (userGuessed > this.state.randomNum) {
                 this.setState({ result: `Your guess "${userGuessed}" is higher than the correct number.` });
             }
-            numberGuesses++;
+            this.setState({ numberGuesses: this.state.numberGuesses + 1 });
         } else {
-            this.setState({ result: `"${this.state.randomNum}" is right! It took you ${numberGuesses} guess${numberGuesses > 1 && `es`}.` });
+            this.setState({ result: `"${this.state.randomNum}" is right! It took you ${this.state.numberGuesses} guess${this.state.numberGuesses > 1 && `es`}.` });
         }
 
         // for (let i=1000; i > 0 ; i--){
@@ -59,9 +60,11 @@ class MiniChallenge8 extends React.Component {
     };
 
     EventHandler = (props) => {
-        this.state.randomNum = Math.ceil(Math.random() * props);
-        this.state.gameSelect = true;
+        // this.state.randomNum = Math.ceil(Math.random() * props);
+        // this.state.gameSelect = true;
         this.setState({
+            randomNum: Math.ceil(Math.random() * props),
+            gameSelect: true,
             currentGame: `Got it! I've selected a number between 1 and ${props}...`,
             result: `Start guessing!`,
             theRange: props
@@ -122,7 +125,7 @@ class MiniChallenge8 extends React.Component {
     GuessingArea = () => {
         return (
             <>
-            <h4>{`Guess # ${numberGuesses}`}</h4>
+            <h4>{`Guess # ${this.state.numberGuesses}`}</h4>
                 <Col className="paddingTop">
                     <FormField
                         id="Guess here!"
@@ -179,3 +182,5 @@ class MiniChallenge8 extends React.Component {
 }
 
 export default MiniChallenge8;
+
+// toast messaging system; in services folder: that has to go to other services to pull...or utilities.... organize it create folder to keep it organized, try to break things out that you could potentially use for later...

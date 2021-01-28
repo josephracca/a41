@@ -4,8 +4,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('../src/images/retroMenuBG.png') no-repeat center center fixed;
+  /* background: url('../src/images/retroMenuBG.png') no-repeat center center fixed;
   background-size: cover!important;
+  background-position: bottom; */
   font-size: 100%!important;
   line-height: 20px!important;
   text-align: center!important;

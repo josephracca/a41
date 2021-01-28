@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 
 import "./App.css";
 import "./index.css";
 import "./wickedcss.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Toast } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
@@ -23,16 +23,38 @@ import Header from "../src/components/header/header";
 import Clock from "../src/components/clock/clock";
 import Music from "../src/components/music/music";
 
+import ShowMenu from './components/shared/showMenu';
+
+function Example() {
+  const [showA, setShowA] = useState(true);
+  const toggleShowA = () => setShowA(!showA);
+
+  return (
+    <Row>
+      <Col xs={12}>
+        <Toast show={showA} onClose={toggleShowA}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded mr-2"
+              alt=""
+            />
+            <strong className="mr-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+          </Toast.Header>
+          <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+        </Toast>
+      </Col>
+    </Row>
+  );
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-  }
-
-  showMenu() {
-    document.getElementById("home").className === "App d-none"
-      ? (document.getElementById("home").className = "App")
-      : (document.getElementById("home").className = "App d-none");
+    this.state = {
+      menuOpen: true
+    };
   }
 
   render() {
@@ -40,7 +62,7 @@ class App extends React.Component {
       <>
         <Router>
           <Header />
-          <div id="home" className="App mainBG slideUp height100">
+          <div id="home" className="App slideUp height100 Menu">
             <Container fluid className="mt-5 smallWidth">
               <div className="bounceIn">
                 <Row className="mb-1">
@@ -66,7 +88,7 @@ class App extends React.Component {
                 <Col>
                   {utils.range(1, 9).map((element) => (
                     <Button
-                      onClick={this.showMenu}
+                      onClick={ShowMenu}
                       as={Link}
                       to={`/mc${element}`}
                       classes="buttonW pulse"
@@ -75,6 +97,7 @@ class App extends React.Component {
                   ))}
                 </Col>
               </Row>
+              {/* <Example /> */}
             </Container>
           </div>
 
@@ -113,12 +136,12 @@ class App extends React.Component {
           <Row className="mx-5">
             <Col xs="12" lg="4" className="mb-5">
               <h2>Welcome to the underground...</h2>
-              <p>Thanks for stopping by: This is my first project using react. Originally, this was done using Unity and C#. It's been a really fun learning experience to recreate an old assignment in a completely different language. But enough about me, have a look around and have fun!</p>
+              <p className="leftAlign">Thanks for stopping by! This is my first project using React. Originally, this was done using Unity and C#. It's been a really fun learning experience to recreate an old assignment in a completely different language. But enough about me, have a look around and have fun!</p>
             </Col>
-            <Col xs="12" md="4">
+            <Col xs="12" md="6" lg="4">
               <Clock />
             </Col>
-            <Col xs="12" md="4">
+            <Col xs="12" md="6" lg="4">
               <Music />
             </Col>
           </Row>

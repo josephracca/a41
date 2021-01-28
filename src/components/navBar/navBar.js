@@ -9,16 +9,12 @@ import {
 import "./navBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync, faHome, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import ShowMenu from '../shared/showMenu';
+
 
 const refresh = <FontAwesomeIcon icon={faSync} size="1x" color="white" />;
 const home = <FontAwesomeIcon icon={faHome} size="1x" color="white" />;
 const options = <FontAwesomeIcon icon={faEllipsisH} size="1x" color="white" />;
-
-let showMenu = function () {
-  document.getElementById("home").className === "App d-none" ?
-    document.getElementById("home").className = "App" :
-    document.getElementById("home").className = "App d-none";
-}
 
 const NavBar = () => {
   const refreshPage = () => {
@@ -30,7 +26,7 @@ const NavBar = () => {
       <Container fluid className="bgBar">
         <Row>
           <Col><Button variant="dark" onClick={refreshPage}>{refresh}</Button></Col>
-          <Col><Button variant="dark" onClick={showMenu}>{home}</Button></Col>
+          <Col><Button variant="dark" onClick={ShowMenu}>{home}</Button></Col>
           <Col>
             <Button variant="dark" as={Link} to="/options">{options}</Button>
           </Col>

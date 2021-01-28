@@ -3,6 +3,14 @@
   z-index: -1000;
 }
 
+.Menu{
+  background: url('../src/images/retroMenuBG.png') no-repeat center center!important;
+  background-size: cover!important;
+  background-position: bottom;
+  z-index: -1000;
+  padding-bottom: 300px;
+}
+
 .buttonW{
   width: 120px;
   height: 120px;
@@ -52,6 +60,7 @@ h3{
 
 .height100{
   height: 100vh;
+  min-height: 1100px;
 }
 
 .smallWidth{
@@ -69,4 +78,13 @@ h3{
 
 a{
   color: rgb(255, 217, 0)!important;
+}
+
+.leftAlign{
+  text-align: left!important;
+  font-size: .85rem;
+}
+.clock{
+  font-size: 3rem!important;
+
 }
