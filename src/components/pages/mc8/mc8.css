@@ -1,0 +1,9 @@
+.bg8{
+    background-image: url('../../../images/blueGray.png');
+    background-size: cover!important;
+    background-position: bottom!important;
+    background-repeat: repeat!important;
+    color: rgb(255, 255, 255);
+    padding: 200px 20px 150px 20px;
+    
+}

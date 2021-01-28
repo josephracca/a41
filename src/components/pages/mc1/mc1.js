@@ -1,7 +1,9 @@
 import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
-import ValidateString from "../validation/validation";
+import ValidateString from "../../validation/validation";
 import "./mc1.css";
+import Toasty from '../../shared/toast/toast';
+import Example from "../../shared/toast/toast";
 
 class MiniChallenge1 extends React.Component {
   constructor(props) {
@@ -10,6 +12,8 @@ class MiniChallenge1 extends React.Component {
       firstName: "",
       lastName: "",
       message: "",
+      toastAlert: false,
+      alert: ""
     };
   }
 
@@ -23,8 +27,10 @@ class MiniChallenge1 extends React.Component {
     });
 
     if (firstName === "" || lastName === "") {
+      // {Example.toggleShowA};
       this.setState({
         message: "Uh oh, make sure both fields are filled, and try again!",
+        toastAlert: true
       });
     } else if (ValidateString(firstName) || ValidateString(lastName)) {
       this.setState({
@@ -42,6 +48,7 @@ class MiniChallenge1 extends React.Component {
   render() {
     return (
       <div className="bg slideUp height100">
+        {this.state.toastAlert && <Toasty message={this.state.alert}/>}
         <Container className="centered smallWidth">
           <h1>MINI 1</h1>
           <h2>Welcome!</h2>

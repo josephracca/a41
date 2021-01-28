@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
-import ValidateString from "../validation/validation";
+import ValidateString from "../../validation/validation";
 
 import "./mc2.css";
 

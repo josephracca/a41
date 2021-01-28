@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col, ButtonGroup } from "react-bootstrap";
 import "./mc8.css";
-import AButton from "../button/button";
-import FormField from "../formControl/formControl";
+import AButton from "../../shared/button/button";
+import FormField from "../../shared/formControl/formControl";
 
 // let this.state.randomNum;
 // let this.state.numberGuesses = 1;

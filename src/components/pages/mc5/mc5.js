@@ -1,8 +1,8 @@
 import React from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
 import "./mc5.css";
-import AButton from "../button/button";
-import FormField from "../formControl/formControl";
+import AButton from "../../shared/button/button";
+import FormField from "../../shared/formControl/formControl";
 
 const lib1 = [
   { type: "text", name: "First Adjective" },

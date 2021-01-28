@@ -1,8 +1,8 @@
 import React from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
-import "../../App.css";
+import "../../../App.css";
 import "./mc4.css";
-import AButton from "../button/button";
+import AButton from "../../shared/button/button";
 
 class MiniChallenge4 extends React.Component {
   constructor(props) {

@@ -8,46 +8,22 @@ import { Container, Col, Row, Toast } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
-import MC1 from "../src/components/mc1/mc1";
-import MC2 from "../src/components/mc2/mc2";
-import MC3 from "../src/components/mc3/mc3";
-import MC4 from "../src/components/mc4/mc4";
-import MC5 from "../src/components/mc5/mc5";
-import MC6 from "../src/components/mc6/mc6";
-import MC7 from "../src/components/mc7/mc7";
-import MC8 from "../src/components/mc8/mc8";
+import MC1 from "./components/pages/mc1/mc1";
+import MC2 from "./components/pages/mc2/mc2";
+import MC3 from "./components/pages/mc3/mc3";
+import MC4 from "./components/pages/mc4/mc4";
+import MC5 from "./components/pages/mc5/mc5";
+import MC6 from "./components/pages/mc6/mc6";
+import MC7 from "./components/pages/mc7/mc7";
+import MC8 from "./components/pages/mc8/mc8";
 
-import Button from "../src/components/button/button";
+import Button from "./components/shared/button/button";
 import NavBar from "../src/components/navBar/navBar";
 import Header from "../src/components/header/header";
 import Clock from "../src/components/clock/clock";
 import Music from "../src/components/music/music";
 
 import ShowMenu from './components/shared/showMenu';
-
-function Example() {
-  const [showA, setShowA] = useState(true);
-  const toggleShowA = () => setShowA(!showA);
-
-  return (
-    <Row>
-      <Col xs={12}>
-        <Toast show={showA} onClose={toggleShowA}>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded mr-2"
-              alt=""
-            />
-            <strong className="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
-        </Toast>
-      </Col>
-    </Row>
-  );
-}
 
 class App extends React.Component {
   constructor(props) {
@@ -97,7 +73,6 @@ class App extends React.Component {
                   ))}
                 </Col>
               </Row>
-              {/* <Example /> */}
             </Container>
           </div>
 
@@ -129,6 +104,7 @@ class App extends React.Component {
             </Route>
           </Switch>
           <NavBar />
+
         </Router>
 
         <div  className="bgOpt2">

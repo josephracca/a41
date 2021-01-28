@@ -1,5 +1,5 @@
 import { Row, Col } from "react-bootstrap";
-import "../../App.css";
+import "../../../App.css";
 import Logo from "../../images/JR_Logo.png";
 
 const AButton = (props) => {
