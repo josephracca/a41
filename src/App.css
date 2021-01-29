@@ -4,9 +4,9 @@
 }
 
 .Menu{
-  background: url('../src/images/retroMenuBG.png') no-repeat center center!important;
+  background: url('../src/images/retroMenuBG.png') no-repeat!important;
   background-size: cover!important;
-  background-position: bottom;
+  background-position: bottom!important;
   z-index: -1000;
   padding-bottom: 300px;
 }

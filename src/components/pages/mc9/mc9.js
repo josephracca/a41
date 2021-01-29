@@ -1,10 +1,8 @@
 import React from "react";
-
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "../../shared/button/button";
-//start with constructing a class
-
 import "./mc9.css";
+import Randomize from "../../shared/randomizer/randomizer";
 
 let responses = [
   "It is certain.",
@@ -29,22 +27,28 @@ let responses = [
   "Very doubtful.",
 ];
 
-let buttonResponses = ["Find the Answer to Your Question", "Ask Another", "Another", "And Another", "I need another answer!"]
+let buttonResponses = [
+  "Find the Answer to Your Question",
+  "Ask Another",
+  "Another",
+  "And Another",
+  "I need another answer!",
+];
 class MiniChallenge9 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       answer: "waiting...",
       prompt: "The answer you seek awaits at the index of you.",
-      buttonText: "Wait, wait, don't tell me..."
+      buttonText: "Wait, wait, don't tell me...",
     };
   }
 
   GetNewAnswer = () => {
     this.setState({
-      answer: responses[Math.floor(Math.random() * responses.length)],
+      answer: `${Randomize(responses)}`,
       prompt: "You have no limit on answers. Ask another...",
-      buttonText: buttonResponses[Math.floor(Math.random() * buttonResponses.length)]
+      buttonText: `${Randomize(buttonResponses)}`,
     });
   };
 
@@ -52,14 +56,16 @@ class MiniChallenge9 extends React.Component {
     return (
       <>
         <Container fluid className="height100 bg9">
-            <Row>
-                <Col>
-                <h1>MINI 9</h1>
-                <h2>Magic [7] Ball</h2>
-                </Col>
-            </Row>
+          <Row>
+            <Col>
+              <h1>MINI 9</h1>
+              <h2>Magic [7] Ball</h2>
+            </Col>
+          </Row>
           <Row className="px-5">
-            <Col><h3>{this.state.prompt}</h3></Col>
+            <Col>
+              <h3>{this.state.prompt}</h3>
+            </Col>
           </Row>
           <Row>
             <Col>
@@ -71,7 +77,9 @@ class MiniChallenge9 extends React.Component {
             </Col>
           </Row>
           <Row className="pulse px-5 mt-5 rotate">
-            <Col className="rotateIn"><h2 className="rotateIn">{this.state.answer}</h2></Col>
+            <Col className="rotateIn">
+              <h2 className="rotateIn">{this.state.answer}</h2>
+            </Col>
           </Row>
         </Container>
       </>

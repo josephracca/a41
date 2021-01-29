@@ -8,10 +8,8 @@ import {
 import "./navBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync, faHome, faCamera } from "@fortawesome/free-solid-svg-icons";
-import ShowMenu from '../shared/showMenu';
+import ShowMenu from '../shared/showMenu/showMenu';
 import Button from "../shared/button/button";
-import WhiteLogo from "../../images/jrLogoWhite.svg"
-
 
 
 const refresh = <FontAwesomeIcon icon={faSync} size="1x" color="white" />;
@@ -21,10 +19,6 @@ const camera = <FontAwesomeIcon icon={faCamera} size="1x" color="white" />;
 const NavBar = () => {
   const refreshPage = () => {
     window.location.reload();
-  }
-
-  const logoWidth = {
-    width: '10%'
   }
 
   const openIG = () => { window.open("https://www.instagram.com/jracca/", '_blank'); }

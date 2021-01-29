@@ -23,7 +23,7 @@ import Header from "../src/components/header/header";
 import Clock from "../src/components/clock/clock";
 import Music from "../src/components/music/music";
 
-import ShowMenu from "./components/shared/showMenu";
+import ShowMenu from "./components/shared/showMenu/showMenu";
 
 class App extends React.Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class App extends React.Component {
                 </Row>
               </div>
               <Row className="zoomer mb-5">
-                <Col>
+                <Col className="mb-5">
                   {utils.range(1, 9).map((element) => (
                     <Button
                       onClick={ShowMenu}
@@ -110,11 +110,12 @@ class App extends React.Component {
           <NavBar />
         </Router>
 
-        <div className="bgOpt2">
+        <div className="bgOpt2 height100">
           <Container>
             <Row className="mx-5">
               <Col xs="12" lg="4" className="mb-5">
-                <h2>Welcome to the underground...</h2>
+                <h2>Welcome! </h2>
+                <h3>(to the underground...)</h3>
                 <p className="leftAlign">
                   Thanks for stopping by! This is my first project using React.
                   Originally, this was done using Unity and C#. It's been a

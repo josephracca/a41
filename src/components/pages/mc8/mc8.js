@@ -28,7 +28,7 @@ class MiniChallenge8 extends React.Component {
     generateRand = () => {
         // let arrayNum = [];
         let userGuessed = parseInt(document.getElementById("Guess here!").value);
-        console.log(this.state.randomNum, userGuessed);
+        // console.log(this.state.randomNum, userGuessed);
 
         // userGuessed !== this.state.randomNum ? this.setState({ result: "true" }) : this.setState({ result: "false" });
 
@@ -72,7 +72,7 @@ class MiniChallenge8 extends React.Component {
         if (!props) {
             alert("nothing entered for custom game!");
         }
-        console.log(props, this.state);
+        // console.log(props, this.state);
     }
 
     ResetAll = () => {
@@ -83,7 +83,7 @@ class MiniChallenge8 extends React.Component {
             currentGame: "",
             gameSelect: false
         })
-        console.log(this.state);
+        // console.log(this.state);
     }
 
     GameChoices = () => {
