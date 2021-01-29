@@ -1,12 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 
 import "./App.css";
 import "./index.css";
 import "./wickedcss.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Col, Row, Toast } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 
 import MC1 from "./components/pages/mc1/mc1";
 import MC2 from "./components/pages/mc2/mc2";
@@ -16,6 +15,7 @@ import MC5 from "./components/pages/mc5/mc5";
 import MC6 from "./components/pages/mc6/mc6";
 import MC7 from "./components/pages/mc7/mc7";
 import MC8 from "./components/pages/mc8/mc8";
+import MC9 from "./components/pages/mc9/mc9";
 
 import Button from "./components/shared/button/button";
 import NavBar from "../src/components/navBar/navBar";
@@ -23,13 +23,14 @@ import Header from "../src/components/header/header";
 import Clock from "../src/components/clock/clock";
 import Music from "../src/components/music/music";
 
-import ShowMenu from './components/shared/showMenu';
+import ShowMenu from "./components/shared/showMenu";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuOpen: true
+      menuOpen: true,
+      mcOpen: false,
     };
   }
 
@@ -102,26 +103,34 @@ class App extends React.Component {
             <Route path="/mc8">
               <MC8 className="pb-5 mb-5" />
             </Route>
+            <Route path="/mc9">
+              <MC9 className="pb-5 mb-5" />
+            </Route>
           </Switch>
           <NavBar />
-
         </Router>
 
-        <div  className="bgOpt2">
-        <Container>
-          <Row className="mx-5">
-            <Col xs="12" lg="4" className="mb-5">
-              <h2>Welcome to the underground...</h2>
-              <p className="leftAlign">Thanks for stopping by! This is my first project using React. Originally, this was done using Unity and C#. It's been a really fun learning experience to recreate an old assignment in a completely different language. But enough about me, have a look around and have fun!</p>
-            </Col>
-            <Col xs="12" md="6" lg="4">
-              <Clock />
-            </Col>
-            <Col xs="12" md="6" lg="4">
-              <Music />
-            </Col>
-          </Row>
-        </Container>
+        <div className="bgOpt2">
+          <Container>
+            <Row className="mx-5">
+              <Col xs="12" lg="4" className="mb-5">
+                <h2>Welcome to the underground...</h2>
+                <p className="leftAlign">
+                  Thanks for stopping by! This is my first project using React.
+                  Originally, this was done using Unity and C#. It's been a
+                  really fun learning experience to recreate an old assignment
+                  in a completely different language. But enough about me, have
+                  a look around and have fun!
+                </p>
+              </Col>
+              <Col xs="12" md="6" lg="4">
+                <Clock />
+              </Col>
+              <Col xs="12" md="6" lg="4">
+                <Music />
+              </Col>
+            </Row>
+          </Container>
         </div>
       </>
     );
@@ -129,7 +138,7 @@ class App extends React.Component {
 }
 
 const utils = {
-  range: (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i)
+  range: (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i),
 };
 
 export default App;

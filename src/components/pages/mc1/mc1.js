@@ -105,3 +105,5 @@ class MiniChallenge1 extends React.Component {
 }
 
 export default MiniChallenge1;
+
+// this one is actually a bit better! It doesn't do that damn wiggle thing that the other one did.

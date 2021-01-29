@@ -1,8 +1,8 @@
 .bg9 {
-    background-image: url('../../../images/responsebg2.png');
+    background-image: url('../../../images/welcome_bg2.png');
     background-size: cover!important;
-    background-position: center!important;
-    background-repeat: repeat!important;
+    background-position: center center!important;
+    background-repeat: no-repeat!important;
     color: rgb(255, 255, 255);
     padding: 200px 20px 150px 20px;
 }
