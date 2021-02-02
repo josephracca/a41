@@ -3,8 +3,6 @@ import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import ValidateString from "../../validation/validation";
 import "./mc1.css";
 import Toasty from "../../shared/toast/toast";
-// import Example from "../../shared/toast/toast";
-
 class MiniChallenge1 extends React.Component {
   constructor(props) {
     super(props);
@@ -26,34 +24,27 @@ class MiniChallenge1 extends React.Component {
   };
 
   validateMe = () => {
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
-
-    this.setState({
-      firstName: firstName,
-      lastName: lastName,
-    });
-
-    if (firstName === "" || lastName === "") {
-      // {Example.toggleShowA};
+    if (this.state.firstName === "" || this.state.lastName === "") {
       this.setState({
         message: "Uh oh, make sure both fields are filled, and try again!",
         toastAlert: true,
       });
-    } else if (ValidateString(firstName) || ValidateString(lastName)) {
+    } else if (ValidateString(this.state.firstName) || ValidateString(this.state.lastName)) {
       this.setState({
         message: "Uh oh, no numbers allowed!",
         toastAlert: true,
       });
     } else {
       this.setState({
-        firstName: firstName,
-        lastName: lastName,
-        message: `Hello, ${firstName} ${lastName}!`,
+        message: `Hello, ${this.state.firstName} ${this.state.lastName}!`,
       });
     }
     this.DisappearToast();
   };
+
+  handleChange = (event) => {
+    event.target.name === "First" ? this.setState({firstName: event.target.value}) : this.setState({lastName: event.target.value});
+  }
 
   render() {
     return (
@@ -70,17 +61,19 @@ class MiniChallenge1 extends React.Component {
                   <Toasty message={this.state.message} />
                 )}
                 <Form.Control
-                  id="firstName"
                   size="lg"
                   type="text"
                   placeholder="First Name..."
                   className="mb-3"
+                  onChange={this.handleChange}
+                  name="First"
                 />
                 <Form.Control
-                  id="lastName"
                   size="lg"
                   type="text"
                   placeholder="Last Name..."
+                  onChange={this.handleChange}
+                  name="Last"
                 />
               </Form.Group>
             </Col>
@@ -105,5 +98,3 @@ class MiniChallenge1 extends React.Component {
 }
 
 export default MiniChallenge1;
-
-// this one is actually a bit better! It doesn't do that damn wiggle thing that the other one did.

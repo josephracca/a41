@@ -16,6 +16,7 @@ import MC6 from "./components/pages/mc6/mc6";
 import MC7 from "./components/pages/mc7/mc7";
 import MC8 from "./components/pages/mc8/mc8";
 import MC9 from "./components/pages/mc9/mc9";
+// import Home from "./components/pages/home/home";
 
 import Button from "./components/shared/button/button";
 import NavBar from "../src/components/navBar/navBar";
@@ -23,7 +24,14 @@ import Header from "../src/components/header/header";
 import Clock from "../src/components/clock/clock";
 import Music from "../src/components/music/music";
 
-import ShowMenu from "./components/shared/showMenu/showMenu";
+// import ShowMenu from "./components/shared/showMenu/showMenu";
+const numMiniChallenges = 9;
+const mcArray = [];
+
+for (let i = 1; i <= numMiniChallenges ; i++){
+  mcArray.push(i);
+  // console.log(mcArray);
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -34,49 +42,68 @@ class App extends React.Component {
     };
   }
 
-  render() {
+  toggleWindow = () => {    
+    this.setState({menuOpen: !this.state.menuOpen});
+    this.setState({mcOpen: !this.state.mcOpen});
+    console.log(this.state.menuOpen, this.state.mcOpen);
+  }
+
+  menuButton = () => {    
+    if(this.state.menuOpen === false ){
+      this.setState({menuOpen: true});
+    this.setState({mcOpen: false});
+    }
+    // console.log(this.state.menuOpen, this.state.mcOpen);
+  }
+
+
+  Main = () => {
     return (
-      <>
-        <Router>
-          <Header />
-          <div id="home" className="App slideUp height100 Menu">
-            <Container fluid className="mt-5 smallWidth">
-              <div className="bounceIn">
-                <Row className="mb-1">
+      <div id="home" className="App slideUp height100 Menu">
+        <Container fluid className="mt-5 smallWidth">
+          <div className="bounceIn">
+            <Row className="mb-1">
+              <Col>
+                <Row className="wiggle mt-5">
                   <Col>
-                    <Row className="wiggle mt-5">
-                      <Col>
-                        <span className="title">ALL FOR ONE</span>
-                      </Col>
-                    </Row>
-                    <Row className="floater">
-                      <Col>
-                        <h3>
-                          A TiNy, YeT ReAcTiVe
-                          <br />
-                          ColL3cti0n of miNi CHaLLeNgeS
-                        </h3>
-                      </Col>
-                    </Row>
+                    <span className="title">ALL FOR ONE</span>
                   </Col>
                 </Row>
-              </div>
-              <Row className="zoomer mb-5">
-                <Col className="mb-5">
-                  {utils.range(1, 9).map((element) => (
-                    <Button
-                      onClick={ShowMenu}
-                      as={Link}
-                      to={`/mc${element}`}
-                      classes="buttonW pulse"
-                      message={`${element}`}
-                    />
-                  ))}
-                </Col>
-              </Row>
-            </Container>
+                <Row className="floater">
+                  <Col>
+                    <h3>
+                      A TiNy, YeT ReAcTiVe
+                      <br />
+                      ColL3cti0n of miNi CHaLLeNgeS
+                    </h3>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
           </div>
+          <Row className="zoomer mb-5">
+            <Col className="mb-5">
+              {/* {console.log(utils.range(1, mcArray))} */}
+              {mcArray.map((element) => (
+                <Button
+                  onClick={this.toggleWindow}
+                  as={Link}
+                  to={`/mc${element}`}
+                  classes="buttonW pulse"
+                  message={`${element}`}
+                />
+              ))}
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  };
 
+  Switched = () => {
+    return (
+      <div id="MCs" className="">
+        <Container fluid className="px-0">
           <Switch>
             <Route path="/mc1">
               <MC1 className="pb-5 mb-5" />
@@ -106,11 +133,25 @@ class App extends React.Component {
             <Route path="/mc9">
               <MC9 className="pb-5 mb-5" />
             </Route>
+            {/* so we want to do a catch-all that defaults to that route*/}
           </Switch>
-          <NavBar />
+        </Container>
+      </div>
+    );
+  };
+
+  render() {
+    return (
+      <>
+        <Router>
+          <Header />
+          {/* <Home /> */}
+          {this.state.menuOpen && <this.Main />}
+          {this.state.mcOpen && <this.Switched />}
+          <NavBar actionName={this.menuButton}/>
         </Router>
 
-        <div className="bgOpt2 height100">
+        <div className="bgOpt2">
           <Container>
             <Row className="mx-5">
               <Col xs="12" lg="4" className="mb-5">
@@ -138,8 +179,8 @@ class App extends React.Component {
   }
 }
 
-const utils = {
-  range: (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i),
-};
+// const utils = {
+//   range: (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i),
+// };
 
 export default App;

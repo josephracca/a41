@@ -36,24 +36,10 @@ class MiniChallenge5 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      num1: "",
-      num2: "",
       sum: false,
       result: "",
     };
   }
-
-  validateMe = () => {
-    if (
-      document.getElementById("num1").value === "" ||
-      document.getElementById("num2").value === ""
-    ) {
-      alert(
-        `Uh oh, make sure both fields are filled using NUMBERS only, and try again!`
-      );
-    } else {
-    }
-  };
 
   readValues = () => {
     for (let i = 0; i < allWords.length; i++) {
@@ -97,7 +83,7 @@ class MiniChallenge5 extends React.Component {
 
           <Row className="my-5">
             <Col>
-              <p>
+              <p className="pulse">
                 {!this.state.result
                   ? "Waiting..."
                   : `YOUR MADLIB...${this.state.result}`}
@@ -111,3 +97,5 @@ class MiniChallenge5 extends React.Component {
 }
 
 export default MiniChallenge5;
+
+//TO-DO: turn the madlib into a modal of some kind...

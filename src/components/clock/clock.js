@@ -8,6 +8,7 @@ class Clock extends React.Component {
     this.state = {
       date: new Date(),
       show: true,
+      mode: true
     };
   }
 
@@ -25,6 +26,10 @@ class Clock extends React.Component {
     this.setState({ show: !this.state.show });
   };
 
+  hourToggle = () => {
+    this.setState({ mode: !this.state.mode });
+  };
+
   tick() {
     this.setState({ date: new Date() });
   }
@@ -34,12 +39,13 @@ class Clock extends React.Component {
       <div className="pb-5">
         {this.state.show ? (
           <>
-            <h2 className="clock">{this.state.date.toLocaleTimeString()}</h2>
+            <h2 className="clock">{this.state.mode ? this.state.date.toLocaleTimeString() : this.state.date.toLocaleTimeString('en-GB')}</h2>
           </>
         ) : (
             ""
           )}
-        <Button variant="warning" onClick={this.hideClock}>{this.state.show ? "Hide" : "Show"} Clock</Button>
+        <Button variant="warning" onClick={this.hideClock}>{this.state.show ? "Hide" : "Show"} Clock</Button>{" "}
+        {this.state.show && <Button variant="warning" onClick={this.hourToggle}>{this.state.mode ? "24HR" : "12HR"}</Button> }
       </div>
     );
   }
