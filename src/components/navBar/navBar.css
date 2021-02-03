@@ -1,6 +1,6 @@
 .bgBar{
     background-color: rgb(26, 29, 34)!important;
-    padding: 20px;
+    padding: 10px;
     position: fixed;
     bottom: 0px;
     z-index:1000

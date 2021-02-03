@@ -5,7 +5,12 @@ import "./index.css";
 import "./wickedcss.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Col, Row } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
 
 import MC1 from "./components/pages/mc1/mc1";
 import MC2 from "./components/pages/mc2/mc2";
@@ -28,7 +33,7 @@ import Music from "../src/components/music/music";
 const numMiniChallenges = 9;
 const mcArray = [];
 
-for (let i = 1; i <= numMiniChallenges ; i++){
+for (let i = 1; i <= numMiniChallenges; i++) {
   mcArray.push(i);
   // console.log(mcArray);
 }
@@ -42,29 +47,28 @@ class App extends React.Component {
     };
   }
 
-  toggleWindow = () => {    
-    this.setState({menuOpen: !this.state.menuOpen});
-    this.setState({mcOpen: !this.state.mcOpen});
+  toggleWindow = () => {
+    this.setState({ menuOpen: !this.state.menuOpen });
+    this.setState({ mcOpen: !this.state.mcOpen });
     console.log(this.state.menuOpen, this.state.mcOpen);
-  }
+  };
 
-  menuButton = () => {    
-    if(this.state.menuOpen === false ){
-      this.setState({menuOpen: true});
-    this.setState({mcOpen: false});
+  menuButton = () => {
+    if (this.state.menuOpen === false) {
+      this.setState({ menuOpen: true });
+      this.setState({ mcOpen: false });
     }
     // console.log(this.state.menuOpen, this.state.mcOpen);
-  }
-
+  };
 
   Main = () => {
     return (
-      <div id="home" className="App slideUp height100 Menu">
+      <div id="home" className="App slideDown height100 Menu ">
         <Container fluid className="mt-5 smallWidth">
           <div className="bounceIn">
             <Row className="mb-1">
               <Col>
-                <Row className="wiggle mt-5">
+                <Row className="mt-5">
                   <Col>
                     <span className="title">ALL FOR ONE</span>
                   </Col>
@@ -102,12 +106,12 @@ class App extends React.Component {
 
   Switched = () => {
     return (
-      <div id="MCs" className="">
+      <div id="MCs" className="d-flex">
         <Container fluid className="px-0">
           <Switch>
             <Route path="/mc1">
               <MC1 className="pb-5 mb-5" />
-              <Header />
+              {/* <Header /> */}
             </Route>
             <Route path="/mc2">
               <MC2 className="pb-5 mb-5" />
@@ -148,13 +152,13 @@ class App extends React.Component {
           {/* <Home /> */}
           {this.state.menuOpen && <this.Main />}
           {this.state.mcOpen && <this.Switched />}
-          <NavBar actionName={this.menuButton}/>
+          <NavBar actionName={this.menuButton} />
         </Router>
 
-        <div className="bgOpt2">
-          <Container>
-            <Row className="mx-5">
-              <Col xs="12" lg="4" className="mb-5">
+        <div className="bgOpt2 mb-5">
+          <Container fluid>
+            <Row className="footer">
+              <Col xs="12" lg="7" className="mb-5">
                 <h2>Welcome! </h2>
                 <h3>(to the underground...)</h3>
                 <p className="leftAlign">
@@ -165,12 +169,14 @@ class App extends React.Component {
                   a look around and have fun!
                 </p>
               </Col>
-              <Col xs="12" md="6" lg="4">
+              <Col xs="12" md="12" lg="5" className="mx-0 px-0">
+                <h2>Options</h2>
                 <Clock />
-              </Col>
-              <Col xs="12" md="6" lg="4">
                 <Music />
               </Col>
+              {/* <Col xs="12" md="6" lg="6">
+                <Music />
+              </Col> */}
             </Row>
           </Container>
         </div>

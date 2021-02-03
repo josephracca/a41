@@ -3,14 +3,18 @@ import ReactAudioPlayer from "react-audio-player";
 import Fireflies from "../../audio/fireflies.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
+// import Button from "../shared/button/button";
 
 const musicNote = <FontAwesomeIcon icon={faMusic} size="1x" color="white" />;
+// const playSymbol = <FontAwesomeIcon icon={faPlay} size="1x" color="white" />;
+// const pauseSymbol = <FontAwesomeIcon icon={faPause} size="1x" color="white" />;
 
 class Song extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        autoPlay: true
+        autoPlay: true,
+        playing: true
     };
   }
   componentDidMount() {
@@ -28,6 +32,11 @@ class Song extends React.Component {
       this.setState({autoPlay: true})
   }
 
+  // musicHandler(){
+  //   console.log("test");
+  //   this.state.playing ? this.setState({playing: false}) : this.setState({playing: true});
+  // }
+
   render() {
     return (
       <div className="my-2">
@@ -41,6 +50,7 @@ class Song extends React.Component {
           autoPlay={this.state.autoPlay}
           controls={true}
         />
+        {/* <Button src={Fireflies} onClick={this.musicHandler} message={this.state.playing ? pauseSymbol : playSymbol}/> */}
         
       </div>
     );

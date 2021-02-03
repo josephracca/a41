@@ -10,19 +10,27 @@ class TostiLocos extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showA: true,
-            setShowA: false,
+            showA: props.showA,
             message: props.message
         }
     }
 
-    toggleShowA = () => this.setState({ showA: !this.state.showA });
+    // DisappearToast = () => {
+    //     setTimeout(() => {
+    //       this.setState({
+    //         toastAlert: false,
+    //         message: "Waiting...",
+    //       });
+    //     }, 3250);
+    //   };
+
+    // toggleShowA = () => this.setState({ showA: !this.state.showA });
 
     render() {
         return (
-            <Row>
+            <Row className="mb-3">
                 <Col xs={12}>
-                    <Toast show={this.state.showA} onClose={this.toggleShowA} delay={2750} autohide>
+                    <Toast show={this.state.showA} delay={2750} autohide>
                         <Toast.Header className="redBG white">
                             <img
                                 src="holder.js/20x20?text=%20"

@@ -19,6 +19,7 @@ class MiniChallenge1 extends React.Component {
     setTimeout(() => {
       this.setState({
         toastAlert: false,
+        message: "Waiting...",
       });
     }, 3250);
   };
@@ -29,22 +30,28 @@ class MiniChallenge1 extends React.Component {
         message: "Uh oh, make sure both fields are filled, and try again!",
         toastAlert: true,
       });
-    } else if (ValidateString(this.state.firstName) || ValidateString(this.state.lastName)) {
+      this.DisappearToast();
+    } else if (
+      ValidateString(this.state.firstName) ||
+      ValidateString(this.state.lastName)
+    ) {
       this.setState({
         message: "Uh oh, no numbers allowed!",
         toastAlert: true,
       });
+      this.DisappearToast();
     } else {
       this.setState({
         message: `Hello, ${this.state.firstName} ${this.state.lastName}!`,
       });
     }
-    this.DisappearToast();
   };
 
   handleChange = (event) => {
-    event.target.name === "First" ? this.setState({firstName: event.target.value}) : this.setState({lastName: event.target.value});
-  }
+    event.target.name === "First"
+      ? this.setState({ firstName: event.target.value })
+      : this.setState({ lastName: event.target.value });
+  };
 
   render() {
     return (
@@ -58,7 +65,10 @@ class MiniChallenge1 extends React.Component {
               {" "}
               <Form.Group>
                 {this.state.toastAlert && (
-                  <Toasty message={this.state.message} />
+                  <Toasty
+                    message={this.state.message}
+                    showA={this.state.toastAlert}
+                  />
                 )}
                 <Form.Control
                   size="lg"
