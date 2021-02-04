@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "./mc7.css";
-import AButton from "../../shared/button/button";
+import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 
 import JohnMayer from "../../../images/JMayer.png";
@@ -58,7 +58,7 @@ class MiniChallenge7 extends React.Component {
                   type="string"
                   size="lg"
                 />
-                <AButton
+                <Button
                   variant="warning"
                   onClick={this.reverseIt}
                   message="Reverse it!"

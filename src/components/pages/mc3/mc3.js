@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import "../../../App.css";
 import "./mc3.css";
+import FormField from "../../shared/formControl/formControl";
+import Toasty from "../../shared/toast/toast";
 
 
 
@@ -9,33 +11,43 @@ class MiniChallenge3 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      num1Set: "",
-      num2Set: "",
-      sum: false,
-      message: ""
+      num1: "",
+      num2: "",
+      message: "",
+      toastAlert: false
     };
   }
 
   validateMe = () => {
-
-    const num1 = document.getElementById("num1").value;
-    const num2 = document.getElementById("num2").value;
-    
+    console.log(`${this.state.num1}, ${this.state.num2}`);
     if (
-      num1 === "" ||
-      num2 === ""
+      this.state.num1 === "" ||
+      this.state.num2 === ""
     ) {
-      this.setState({message: `Uh oh, make sure both fields are filled and try again!`});
+      this.setState({message: `Uh oh, make sure you've entered a number into both fields and try again!`, toastAlert: true});
+      this.ResetMessage();
     } else {
       this.setState({
-        num1Set: num1,
-        num2Set: num2,
-        sum: true,
-        message: `${num1} + ${num2} = ${
-          parseFloat(num1) + parseFloat(num2)
-        }`
+        message: `${this.state.num1} + ${this.state.num2} = 
+          ${parseInt(this.state.num1) + parseInt(this.state.num2)}`
       });
     }
+  };
+
+  ResetMessage = () => {
+    setTimeout(() => {
+      this.setState({
+        toastAlert: false,
+        message: "Waiting...",
+      });
+    }, 3250);
+  };
+
+  handleChange = (event) => {
+    
+    event.target.name === "Number 1"
+      ? this.setState({ num1: event.target.value })
+      : this.setState({ num2: event.target.value });
   };
 
   render() {
@@ -51,18 +63,29 @@ class MiniChallenge3 extends React.Component {
           </Row>
 
           <Form.Group>
-            <Form.Control
+          {this.state.toastAlert && (
+                  <Toasty
+                    message={this.state.message}
+                    showA={this.state.toastAlert}
+                  />
+                )}
+          <FormField
               id="num1"
               size="lg"
               type="number"
               placeholder="Number 1"
               className="mb-3"
+              name="Number 1"
+              onChange={this.handleChange}
             />
-            <Form.Control
-              id="num2"
+            <FormField
+              id="num1"
               size="lg"
               type="number"
               placeholder="Number 2"
+              className="mb-3"
+              name="Number 2"
+              onChange={this.handleChange}
             />
           </Form.Group>
 

@@ -3,6 +3,8 @@ import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import ValidateString from "../../validation/validation";
 import "./mc1.css";
 import Toasty from "../../shared/toast/toast";
+import FormField from "../../shared/formControl/formControl";
+
 class MiniChallenge1 extends React.Component {
   constructor(props) {
     super(props);
@@ -70,7 +72,7 @@ class MiniChallenge1 extends React.Component {
                     showA={this.state.toastAlert}
                   />
                 )}
-                <Form.Control
+                <FormField
                   size="lg"
                   type="text"
                   placeholder="First Name..."
@@ -78,7 +80,7 @@ class MiniChallenge1 extends React.Component {
                   onChange={this.handleChange}
                   name="First"
                 />
-                <Form.Control
+                <FormField
                   size="lg"
                   type="text"
                   placeholder="Last Name..."

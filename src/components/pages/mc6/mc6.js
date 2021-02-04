@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
 import "./mc6.css";
-import AButton from "../../shared/button/button";
+import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 class MiniChallenge6 extends React.Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class MiniChallenge6 extends React.Component {
 
           <Row>
             <Col>
-              <AButton
+              <Button
                 variant="warning"
                 onClick={this.validateMe}
                 message="CHECK NUMBER"

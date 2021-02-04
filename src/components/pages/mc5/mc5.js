@@ -1,23 +1,23 @@
 import React from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
 import "./mc5.css";
-import AButton from "../../shared/button/button";
+import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 
 const lib1 = [
-  { type: "text", name: "First Adjective" },
-  { type: "text", name: "First Noun" },
-  { type: "text", name: "Another Adjective" },
-  { type: "text", name: "First Verb" },
-  { type: "text", name: "A...Plural Noun" },
-  { type: "text", name: "A second Plural Noun" },
-  { type: "text", name: "...and a third Plural Noun" },
-  { type: "text", name: "and a fourth Plural Noun" },
-  { type: "text", name: "Next Verb" },
-  { type: "text", name: "...a second noun" },
-  { type: "text", name: "Verb 3" },
-  { type: "text", name: "LAST Plural Noun" },
-  { type: "text", name: "and one last noun!" },
+  { name: "First Adjective" },
+  { name: "First Noun" },
+  { name: "Another Adjective" },
+  { name: "First Verb" },
+  { name: "A...Plural Noun" },
+  { name: "A second Plural Noun" },
+  { name: "...and a third Plural Noun" },
+  { name: "and a fourth Plural Noun" },
+  { name: "Next Verb" },
+  { name: "...a second noun" },
+  { name: "Verb 3" },
+  { name: "LAST Plural Noun" },
+  { name: "and one last noun!" },
 ];
 
 const allWords = document.getElementsByClassName("wordsAll");
@@ -27,7 +27,7 @@ const FieldGroup = () => {
   return (
     <>
       {lib1.map((info) => (
-        <FormField {...info} />
+        <FormField {...info} className="mt-3 wordsAll" type="text"/>
       ))}
     </>
   );
@@ -73,7 +73,7 @@ class MiniChallenge5 extends React.Component {
 
           <Row>
             <Col>
-              <AButton
+              <Button
                 variant="warning"
                 onClick={this.readValues}
                 message="Generate MadLib Now!"

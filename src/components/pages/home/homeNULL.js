@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import ShowMenu from "../../shared/showMenu/showMenu";
 import { BrowserRouter as Link } from "react-router-dom";
-import AButton from "../../shared/button/button";
+import Button from "../../shared/button/button";
 import "../../../App.css";
 
 class Home extends React.Component {
@@ -43,7 +43,7 @@ class Home extends React.Component {
             <Row className="zoomer mb-5">
               <Col className="mb-5">
                 {utils.range(1, 9).map((element) => (
-                  <AButton
+                  <Button
                     onClick={ShowMenu}
                     // as={Link}
                     to={`/mc${element}`}

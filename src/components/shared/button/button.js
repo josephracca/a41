@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import "../../../App.css";
 
 
-const AButton = (props) => {
+const NewButton = (props) => {
   return (
     <>
       <Button
@@ -17,4 +17,4 @@ const AButton = (props) => {
   );
 };
 
-export default AButton;
+export default NewButton;

@@ -1,11 +1,6 @@
 import React from "react";
 import { Col, Row, Toast } from "react-bootstrap";
 import './toast.css';
-
-
-
-//logic is that this would have to pop up on alert so take the logic from the toggle to activate a NEW toast
-
 class TostiLocos extends React.Component {
     constructor(props) {
         super(props);
@@ -15,16 +10,7 @@ class TostiLocos extends React.Component {
         }
     }
 
-    // DisappearToast = () => {
-    //     setTimeout(() => {
-    //       this.setState({
-    //         toastAlert: false,
-    //         message: "Waiting...",
-    //       });
-    //     }, 3250);
-    //   };
-
-    // toggleShowA = () => this.setState({ showA: !this.state.showA });
+    //CAN TRY TO HAVE A THE DISAPPEAR TOAST BE HERE ISNTEAD?
 
     render() {
         return (

@@ -21,7 +21,6 @@ import MC6 from "./components/pages/mc6/mc6";
 import MC7 from "./components/pages/mc7/mc7";
 import MC8 from "./components/pages/mc8/mc8";
 import MC9 from "./components/pages/mc9/mc9";
-// import Home from "./components/pages/home/home";
 
 import Button from "./components/shared/button/button";
 import NavBar from "../src/components/navBar/navBar";
@@ -29,13 +28,11 @@ import Header from "../src/components/header/header";
 import Clock from "../src/components/clock/clock";
 import Music from "../src/components/music/music";
 
-// import ShowMenu from "./components/shared/showMenu/showMenu";
 const numMiniChallenges = 9;
 const mcArray = [];
 
 for (let i = 1; i <= numMiniChallenges; i++) {
   mcArray.push(i);
-  // console.log(mcArray);
 }
 
 class App extends React.Component {
@@ -58,7 +55,6 @@ class App extends React.Component {
       this.setState({ menuOpen: true });
       this.setState({ mcOpen: false });
     }
-    // console.log(this.state.menuOpen, this.state.mcOpen);
   };
 
   Main = () => {
@@ -137,7 +133,6 @@ class App extends React.Component {
             <Route path="/mc9">
               <MC9 className="pb-5 mb-5" />
             </Route>
-            {/* so we want to do a catch-all that defaults to that route*/}
           </Switch>
         </Container>
       </div>
@@ -149,7 +144,6 @@ class App extends React.Component {
       <>
         <Router>
           <Header />
-          {/* <Home /> */}
           {this.state.menuOpen && <this.Main />}
           {this.state.mcOpen && <this.Switched />}
           <NavBar actionName={this.menuButton} />
@@ -174,9 +168,6 @@ class App extends React.Component {
                 <Clock />
                 <Music />
               </Col>
-              {/* <Col xs="12" md="6" lg="6">
-                <Music />
-              </Col> */}
             </Row>
           </Container>
         </div>

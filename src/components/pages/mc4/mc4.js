@@ -2,7 +2,9 @@ import React from "react";
 import { Form, Container, Row, Col } from "react-bootstrap";
 import "../../../App.css";
 import "./mc4.css";
-import AButton from "../../shared/button/button";
+import Button from "../../shared/button/button";
+import FormField from "../../shared/formControl/formControl";
+
 
 class MiniChallenge4 extends React.Component {
   constructor(props) {
@@ -36,15 +38,21 @@ class MiniChallenge4 extends React.Component {
   }
 
   validateMe = () => {
-    const nums1 = document.getElementById("num1").value;
-    const nums2 = document.getElementById("num2").value;
-    if (nums1 === "" || nums2 === "") {
+    if (this.state.num1 === "" || this.state.num2 === "") {
       this.setState({
         result: `Uh oh, make sure both fields are filled, and try again!`,
       });
     } else {
-      this.compareUs(nums1, nums2);
+      this.compareUs(this.state.num1, this.state.num2);
     }
+  };
+
+  handleChange = (event) => {
+    event.target.name === "num1"
+      ? this.setState({ num1: event.target.value })
+      : this.setState({ num2: event.target.value });
+      console.log(this.state.num1, this.state.num2)
+
   };
 
   render() {
@@ -59,24 +67,26 @@ class MiniChallenge4 extends React.Component {
             </Col>
           </Row>
           <Form.Group>
-            <Form.Control
-              id="num1"
+            <FormField
+              name="num1"
               size="lg"
               type="number"
               placeholder="Number 1"
               className="mb-3"
+              onChange={this.handleChange}
             />
-            <Form.Control
-              id="num2"
+            <FormField
+              name="num2"
               size="lg"
               type="number"
               placeholder="Number 2"
+              onChange={this.handleChange}
             />
           </Form.Group>
 
           <Row>
             <Col>
-              <AButton
+              <Button
                 variant="warning"
                 onClick={this.validateMe}
                 message="Judge Us!"
@@ -86,11 +96,11 @@ class MiniChallenge4 extends React.Component {
 
           <Row className="my-3">
             <Col>
-              <p>
+              <h3>
                 {!this.state.result
                   ? "Waiting..."
-                  : `Verdict is: ${this.state.result}`}
-              </p>
+                  : `VERDICT: ${this.state.result}`}
+              </h3>
             </Col>
           </Row>
 

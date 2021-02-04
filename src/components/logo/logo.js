@@ -2,7 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import "../../../App.css";
 import Logo from "../../images/JR_Logo.png";
 
-const AButton = (props) => {
+const Button = (props) => {
   return (
     <>
       <Row className="my-5 space">
@@ -18,4 +18,4 @@ const AButton = (props) => {
   );
 };
 
-export default AButton;
+export default Button;
