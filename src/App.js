@@ -138,7 +138,7 @@ class App extends React.Component {
   Footer = () => {
     return (
       <div className="bgOpt2 mb-5">
-        <Container fluid>
+        <Container>
           <Row className="footer">
             <Col xs="12" lg="7" className="mb-5">
               <h2>Welcome! </h2>

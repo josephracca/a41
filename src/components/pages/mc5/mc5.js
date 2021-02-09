@@ -5,6 +5,9 @@ import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 import Bubble from "../../../images/chatBubble.png";
 
+import Toasty from "../../shared/toast/toast";
+
+
 const lib1 = [
   { name: "1", placeholder: "First Adjective" },
   { name: "2", placeholder: "First Noun" },
@@ -28,7 +31,6 @@ class MiniChallenge5 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sum: false,
       result: "",
       w1: "",
       w2: "",
@@ -44,6 +46,7 @@ class MiniChallenge5 extends React.Component {
       w12: "",
       w13: "",
       show: false,
+      toastAlert: false
     };
   }
 
@@ -88,14 +91,25 @@ class MiniChallenge5 extends React.Component {
       : this.setState({ w12: event.target.value });
   };
 
+  DisappearToast = () => {
+    setTimeout(() => {
+      this.setState({
+        toastAlert: false,
+        result: "Waiting...",
+      });
+    }, 3250);
+  };
+
   readValues = () => {
     for (let i = 0; i < allWords.length; i++) {
       inputWords.push(allWords[i].value);
     }
 
     if (inputWords.includes("")) {
-      alert("You have an empty field...");
-      console.log(inputWords);
+      // alert("You have an empty field...");
+      this.setState({result: "You have an empty field...", toastAlert: true});
+      // console.log(inputWords);
+      this.DisappearToast();
     } else {
       this.setState({
         result: `Spring is a(n) 
@@ -127,13 +141,17 @@ class MiniChallenge5 extends React.Component {
             <Col>
               <h1>MINI 5</h1>
               <h2> MADLIB GENERATOR </h2>
+              {this.state.toastAlert && (
+                <Toasty
+                  message={this.state.result}
+                  showA={this.state.toastAlert}
+                />
+              )}
             </Col>
           </Row>
-
           <Form.Group>
             <this.FieldGroup />
           </Form.Group>
-
           <Row>
             <Col>
               <Button
@@ -145,10 +163,10 @@ class MiniChallenge5 extends React.Component {
           </Row>
           <Row className="over">
             <Col>
-              <p className=" mt-5">
+              <p className="mt-5">
                 {!this.state.result
                   ? "Waiting...but I believe in you!"
-                  : `YOUR MADLIB...${this.state.result}`}
+                  : `${this.state.result}`}
               </p>
             </Col>
           </Row>
@@ -160,7 +178,6 @@ class MiniChallenge5 extends React.Component {
               
             </Col>
           </Row>
-          
         </Container>
       </div>
     );

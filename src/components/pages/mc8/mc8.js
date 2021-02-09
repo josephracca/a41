@@ -21,12 +21,6 @@ class MiniChallenge8 extends React.Component {
   }
 
   evalNum = (numPass) => {
-    // console.log(
-    //   typeof numPass,
-    //   this.state.randomNum,
-    //   numPass === this.state.randomNum
-    // );
-
     if (!numPass && numPass !== 0) {
       this.setState({
         result:

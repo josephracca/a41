@@ -25,10 +25,11 @@
 }
 
 .over{
-    max-width: 80%;
+    max-width: 70%;
     position: absolute!important;
     padding-top: 30px;
     z-index: 1000;
-    padding-right: 10%;
-    padding-left: 15%;
+    margin: auto;
+    /* padding-right: 10%; */
+    /* padding-left: 15%; */
 }

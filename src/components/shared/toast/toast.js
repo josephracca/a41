@@ -14,7 +14,7 @@ class TostiLocos extends React.Component {
 
     render() {
         return (
-            <Row className="mb-3">
+            <Row className="mb-3 toastFont">
                 <Col xs={12}>
                     <Toast show={this.state.showA} delay={2750} autohide>
                         <Toast.Header className="redBG white">
