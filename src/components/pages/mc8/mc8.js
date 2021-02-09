@@ -3,23 +3,29 @@ import { Container, Row, Col, ButtonGroup } from "react-bootstrap";
 import "./mc8.css";
 import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
+
+import Toasty from "../../shared/toast/toast";
 class MiniChallenge8 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userCurrentGuess: -1,
+      userCurrentGuess: "",
       result: "",
       randomNum: "",
       currentGame: "",
       gameSelect: false,
       theRange: "",
       numberGuesses: 1,
+      toastAlert: false,
     };
   }
 
   evalNum = (numPass) => {
-
-    console.log(typeof numPass, this.state.randomNum, numPass === this.state.randomNum);
+    // console.log(
+    //   typeof numPass,
+    //   this.state.randomNum,
+    //   numPass === this.state.randomNum
+    // );
 
     if (!numPass && numPass !== 0) {
       this.setState({
@@ -50,11 +56,22 @@ class MiniChallenge8 extends React.Component {
     }
   };
 
-  EventHandler = (props) => {
+  SetNumber = (props) => {
     if (!props) {
-      alert("nothing entered for custom game!");
-    } else if (props <= 0) {
-      alert("Ooh, no negativity here please.");
+      this.setState({
+        result: "Nothing was entered for custom game! Try again.",
+        toastAlert: true,
+      });
+      this.DisappearToast();
+    } else if (props < 0) {
+      this.setState({
+        result: "Ooh, no negativity here please.",
+        toastAlert: true,
+      });
+      this.DisappearToast();
+    } else if (props === "0") {
+      this.setState({ result: "Ooh, no zeros please.", toastAlert: true });
+      this.DisappearToast();
     } else {
       this.setState({
         randomNum: Math.ceil(Math.random() * props),
@@ -73,6 +90,9 @@ class MiniChallenge8 extends React.Component {
       randomNum: "",
       currentGame: "",
       gameSelect: false,
+      theRange: "",
+      numberGuesses: 1,
+      toastAlert: false,
     });
   };
 
@@ -83,21 +103,21 @@ class MiniChallenge8 extends React.Component {
           <ButtonGroup aria-label="Basic example">
             <Button
               classes="px-4"
-              onClick={() => this.EventHandler(10)}
+              onClick={() => this.SetNumber(10)}
               variant="dark"
               number="10"
               message="Easy"
             />
             <Button
               classes="px-4"
-              onClick={() => this.EventHandler(50)}
+              onClick={() => this.SetNumber(50)}
               variant="dark"
               number="50"
               message="Medium"
             />
             <Button
               classes="px-4"
-              onClick={() => this.EventHandler(100)}
+              onClick={() => this.SetNumber(100)}
               variant="dark"
               number="100"
               message="Hard"
@@ -112,7 +132,7 @@ class MiniChallenge8 extends React.Component {
             onChange={this.handleChange}
           />
           <Button
-            onClick={() => this.EventHandler(this.state.theRange)}
+            onClick={() => this.SetNumber(this.state.theRange)}
             classes="mt-3"
             variant="dark"
             number="10"
@@ -165,6 +185,15 @@ class MiniChallenge8 extends React.Component {
       : this.setState({ userCurrentGuess: parseInt(event.target.value) });
   };
 
+  DisappearToast = () => {
+    setTimeout(() => {
+      this.setState({
+        toastAlert: false,
+        result: "Waiting...",
+      });
+    }, 3250);
+  };
+
   render() {
     return (
       <div className="bg8 slideUp">
@@ -173,6 +202,12 @@ class MiniChallenge8 extends React.Component {
             <Col xs="12">
               <h1>MINI 8</h1>
               <h2> GUESS IT </h2>
+              {this.state.toastAlert && (
+                <Toasty
+                  message={this.state.result}
+                  showA={this.state.toastAlert}
+                />
+              )}
               <h3>
                 {!this.state.currentGame
                   ? `I'll pick a random number and you try to guess it. Wanna play? You can also select difficulty level for an extra challenge.`

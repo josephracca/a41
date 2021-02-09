@@ -28,10 +28,8 @@ let responses = [
 ];
 
 let buttonResponses = [
-  "Find the Answer to Your Question",
-  "Ask Another",
-  "Another",
-  "And Another",
+  "Reveal the answer",
+  "Tell me more",
   "I need another answer!",
 ];
 class MiniChallenge9 extends React.Component {
@@ -40,7 +38,7 @@ class MiniChallenge9 extends React.Component {
     this.state = {
       answer: "waiting...",
       prompt: "The answer you seek awaits at the index of you.",
-      buttonText: "Wait, wait, don't tell me...",
+      buttonText: "Wait, wait, do tell me...",
     };
   }
 

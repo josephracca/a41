@@ -13,7 +13,6 @@ class MiniChallenge1 extends React.Component {
       lastName: "",
       message: "",
       toastAlert: false,
-      alert: "",
     };
   }
 

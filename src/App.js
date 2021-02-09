@@ -5,12 +5,7 @@ import "./index.css";
 import "./wickedcss.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Col, Row } from "react-bootstrap";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import MC1 from "./components/pages/mc1/mc1";
 import MC2 from "./components/pages/mc2/mc2";
@@ -27,6 +22,8 @@ import NavBar from "../src/components/navBar/navBar";
 import Header from "../src/components/header/header";
 import Clock from "../src/components/clock/clock";
 import Music from "../src/components/music/music";
+
+// import Toasty from "./components/shared/toast/toast";
 
 const numMiniChallenges = 9;
 const mcArray = [];
@@ -107,7 +104,6 @@ class App extends React.Component {
           <Switch>
             <Route path="/mc1">
               <MC1 className="pb-5 mb-5" />
-              {/* <Header /> */}
             </Route>
             <Route path="/mc2">
               <MC2 className="pb-5 mb-5" />
@@ -139,38 +135,44 @@ class App extends React.Component {
     );
   };
 
+  Footer = () => {
+    return (
+      <div className="bgOpt2 mb-5">
+        <Container fluid>
+          <Row className="footer">
+            <Col xs="12" lg="7" className="mb-5">
+              <h2>Welcome! </h2>
+              <h3>(to the underground...)</h3>
+              <p className="leftAlign">
+                Thanks for stopping by! This is my first project using React.
+                Originally, this was done using Unity and C#. It's been a really
+                fun learning experience to recreate an old assignment in a
+                completely different language. But enough about me, have a look
+                around and have fun!
+              </p>
+            </Col>
+            <Col xs="12" md="12" lg="5" className="mx-0 px-0">
+              <h2>Options</h2>
+              <Clock />
+              <Music />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  };
+
   render() {
     return (
       <>
         <Router>
           <Header />
+          {/* <Toasty /> */}
           {this.state.menuOpen && <this.Main />}
           {this.state.mcOpen && <this.Switched />}
           <NavBar actionName={this.menuButton} />
         </Router>
-
-        <div className="bgOpt2 mb-5">
-          <Container fluid>
-            <Row className="footer">
-              <Col xs="12" lg="7" className="mb-5">
-                <h2>Welcome! </h2>
-                <h3>(to the underground...)</h3>
-                <p className="leftAlign">
-                  Thanks for stopping by! This is my first project using React.
-                  Originally, this was done using Unity and C#. It's been a
-                  really fun learning experience to recreate an old assignment
-                  in a completely different language. But enough about me, have
-                  a look around and have fun!
-                </p>
-              </Col>
-              <Col xs="12" md="12" lg="5" className="mx-0 px-0">
-                <h2>Options</h2>
-                <Clock />
-                <Music />
-              </Col>
-            </Row>
-          </Container>
-        </div>
+        <this.Footer />
       </>
     );
   }
