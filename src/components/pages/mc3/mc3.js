@@ -25,7 +25,7 @@ class MiniChallenge3 extends React.Component {
       this.state.num2 === ""
     ) {
       this.setState({message: `Uh oh, make sure you've entered a number into both fields and try again!`, toastAlert: true});
-      this.ResetMessage();
+      this.DisappearToast();
     } else {
       this.setState({
         message: `${this.state.num1} + ${this.state.num2} = 
@@ -34,7 +34,7 @@ class MiniChallenge3 extends React.Component {
     }
   };
 
-  ResetMessage = () => {
+  DisappearToast = () => {
     setTimeout(() => {
       this.setState({
         toastAlert: false,
