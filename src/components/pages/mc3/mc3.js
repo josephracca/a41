@@ -79,7 +79,7 @@ class MiniChallenge3 extends React.Component {
               onChange={this.handleChange}
             />
             <FormField
-              key="num1"
+              key="num2"
               size="lg"
               type="number"
               placeholder="Number 2"
@@ -91,7 +91,7 @@ class MiniChallenge3 extends React.Component {
 
           <Row>
             <Col>
-              <Button onClick={this.validateMe}>Sum It Up!</Button>
+              <Button variant="warning" onClick={this.validateMe}>Sum It Up!</Button>
             </Col>
           </Row>
 

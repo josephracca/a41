@@ -4,9 +4,9 @@ import "./mc5.css";
 import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 import Bubble from "../../../images/chatBubble.png";
+import ValidateMe from "../../validation/validation"
 
 import Toasty from "../../shared/toast/toast";
-
 
 const lib1 = [
   { name: "1", placeholder: "First Adjective" },
@@ -46,7 +46,7 @@ class MiniChallenge5 extends React.Component {
       w12: "",
       w13: "",
       show: false,
-      toastAlert: false
+      toastAlert: false,
     };
   }
 
@@ -106,11 +106,14 @@ class MiniChallenge5 extends React.Component {
     }
 
     if (inputWords.includes("")) {
-      // alert("You have an empty field...");
-      this.setState({result: "You have an empty field...", toastAlert: true});
-      // console.log(inputWords);
+      this.setState({ result: "You have an empty field...", toastAlert: true });
       this.DisappearToast();
     } else {
+      inputWords.forEach(word => {
+        console.log(ValidateMe(word));
+      })
+
+
       this.setState({
         result: `Spring is a(n) 
         ${this.state.w1} time of the year to plant a(n) 
@@ -131,6 +134,61 @@ class MiniChallenge5 extends React.Component {
     }
 
     inputWords = [];
+  };
+
+  resetAll = () => {
+    this.setState({
+      result: "",
+      w1: "",
+      w2: "",
+      w3: "",
+      w4: "",
+      w5: "",
+      w6: "",
+      w7: "",
+      w8: "",
+      w9: "",
+      w10: "",
+      w11: "",
+      w12: "",
+      w13: "",
+      show: false,
+      toastAlert: false,
+    }); 
+  }
+
+  EndGame = () => {
+    return (
+      <>
+        <Container>
+          <Row className="d-flex justify-content-center">
+            <Col xs={8} className="over">
+              <h4 className="mt-5 pulse">
+                {!this.state.result
+                  ? "Waiting...but I believe in you!"
+                  : `${this.state.result}`}
+              </h4>
+            </Col>
+          </Row>
+        </Container>
+        <Row className="my-5">
+          <Col>
+            {this.state.show && (
+              <img src={Bubble} alt="chatBubble" className="w100"></img>
+            )}
+          </Col>
+        </Row>
+        <Row>
+          <Col className="mt-4">
+            <Button
+              variant="danger"
+              onClick={this.resetAll}
+              message="Close Story"
+            />
+          </Col>
+        </Row>
+      </>
+    );
   };
 
   render() {
@@ -161,23 +219,7 @@ class MiniChallenge5 extends React.Component {
               />
             </Col>
           </Row>
-          <Row className="over">
-            <Col>
-              <p className="mt-5">
-                {!this.state.result
-                  ? "Waiting...but I believe in you!"
-                  : `${this.state.result}`}
-              </p>
-            </Col>
-          </Row>
-          <Row className="my-5">
-            <Col>
-              {this.state.show && (
-                <img src={Bubble} alt="chatBubble" className="w100 "></img>
-              )}
-              
-            </Col>
-          </Row>
+          {this.state.show === true ? <this.EndGame /> : <h3 className="pulse mt-3">waiting...</h3>}
         </Container>
       </div>
     );

@@ -4,6 +4,7 @@ import "../../../App.css";
 import "./mc4.css";
 import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
+import Toasty from "../../shared/toast/toast";
 
 
 class MiniChallenge4 extends React.Component {
@@ -14,8 +15,18 @@ class MiniChallenge4 extends React.Component {
       num2: "",
       sum: false,
       result: "",
+      toastAlert: false
     };
   }
+
+  DisappearToast = () => {
+    setTimeout(() => {
+      this.setState({
+        toastAlert: false,
+        result: "",
+      });
+    }, 3250);
+  };
 
   compareUs(x, y) {
 
@@ -32,7 +43,7 @@ class MiniChallenge4 extends React.Component {
     } else {
       this.setState({
         result:
-          `When two numbers are the same, that makes them equal. Nothing else to see here, folks. Move along...`,
+          `When two numbers are the same, that makes them equal. Nothing else to see here, folks. Move along...`, 
       });
     }
   }
@@ -41,7 +52,9 @@ class MiniChallenge4 extends React.Component {
     if (this.state.num1 === "" || this.state.num2 === "") {
       this.setState({
         result: `Uh oh, make sure both fields are filled, and try again!`,
+        toastAlert: true
       });
+      this.DisappearToast();
     } else {
       this.compareUs(this.state.num1, this.state.num2);
     }
@@ -67,6 +80,12 @@ class MiniChallenge4 extends React.Component {
             </Col>
           </Row>
           <Form.Group>
+          {this.state.toastAlert && (
+                <Toasty
+                  message={this.state.result}
+                  showA={this.state.toastAlert}
+                />
+              )}
             <FormField
               name="num1"
               size="lg"
@@ -96,7 +115,7 @@ class MiniChallenge4 extends React.Component {
 
           <Row className="my-3">
             <Col>
-              <h3>
+              <h3 className="pulse">
                 {!this.state.result
                   ? "Waiting..."
                   : `VERDICT: ${this.state.result}`}
