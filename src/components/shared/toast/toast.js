@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row, Toast } from "react-bootstrap";
 import './toast.css';
+
 class TostiLocos extends React.Component {
     constructor(props) {
         super(props);
@@ -9,7 +10,6 @@ class TostiLocos extends React.Component {
             message: props.message
         }
     }
-
     //CAN TRY TO HAVE A THE DISAPPEAR TOAST BE HERE ISNTEAD?
 
     render() {

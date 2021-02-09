@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 class Clock extends React.Component {
   constructor(props) {
-    console.log("constructor gets fired");
+    // console.log("constructor gets fired");
     super(props);
     this.state = {
       date: new Date(),

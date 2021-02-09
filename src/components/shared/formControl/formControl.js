@@ -8,7 +8,7 @@ const FormField = (props) => {
         id={props.name}
         size={props.size}
         type={props.type}
-        placeholder={props.name}
+        placeholder={props.placeholder}
         onChange={props.onChange}
         name={props.name}
       />

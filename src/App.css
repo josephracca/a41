@@ -11,6 +11,15 @@
   padding-bottom: 300px;
 }
 
+.dark{
+  background: url('../src/images/mountain.gif') no-repeat!important;
+  background-size: cover!important;
+  background-position: bottom!important;
+  z-index: -1000;
+  padding-bottom: 300px;
+  color: white;
+}
+
 .buttonW{
   width: 80px;
   height: 80px;
@@ -131,4 +140,11 @@ a{
 
 .footer{
   margin: 10px 0px 10px 0px!important;
+}
+
+.toastFloat{
+  /* position: !important; */
+  /* top: 200px!important;
+  left: 50px!important; */
+  z-index: 5000;
 }

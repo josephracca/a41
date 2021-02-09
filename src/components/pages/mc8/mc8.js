@@ -7,7 +7,7 @@ class MiniChallenge8 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userCurrentGuess: "",
+      userCurrentGuess: -1,
       result: "",
       randomNum: "",
       currentGame: "",
@@ -17,26 +17,27 @@ class MiniChallenge8 extends React.Component {
     };
   }
 
-  generateRand = () => {
-    let userGuessed = parseInt(document.getElementById("Guess here!").value);
+  evalNum = (numPass) => {
 
-    if (!userGuessed && userGuessed !== 0) {
+    console.log(typeof numPass, this.state.randomNum, numPass === this.state.randomNum);
+
+    if (!numPass && numPass !== 0) {
       this.setState({
         result:
           "Whoops, did you mean to leave that blank? I won't count that against you.",
       });
-    } else if (userGuessed < 1 || userGuessed > this.state.theRange) {
+    } else if (numPass < 1 || numPass > this.state.theRange) {
       this.setState({
-        result: `"${userGuessed}" is actually um... OUT of range. To review, the number is between 1 and ${this.state.theRange}`,
+        result: `"${numPass}" is actually um... OUT of range. To review, the number is between 1 and ${this.state.theRange}`,
       });
-    } else if (userGuessed !== this.state.randomNum) {
-      if (userGuessed < this.state.randomNum) {
+    } else if (numPass !== this.state.randomNum) {
+      if (numPass < this.state.randomNum) {
         this.setState({
-          result: `Your guess "${userGuessed}" is lower than the correct number.`,
+          result: `Your guess "${numPass}" is lower than the correct number.`,
         });
-      } else if (userGuessed > this.state.randomNum) {
+      } else if (numPass > this.state.randomNum) {
         this.setState({
-          result: `Your guess "${userGuessed}" is higher than the correct number.`,
+          result: `Your guess "${numPass}" is higher than the correct number.`,
         });
       }
       this.setState({ numberGuesses: this.state.numberGuesses + 1 });
@@ -44,27 +45,30 @@ class MiniChallenge8 extends React.Component {
       this.setState({
         result: `"${this.state.randomNum}" is right! It took you ${
           this.state.numberGuesses
-        } guess${this.state.numberGuesses > 1 && `es`}.`,
+        } guess${this.state.numberGuesses > 1 ? `es` : ``}.`,
       });
     }
   };
 
   EventHandler = (props) => {
-    this.setState({
-      randomNum: Math.ceil(Math.random() * props),
-      gameSelect: true,
-      currentGame: `Got it! I've selected a number between 1 and ${props}...`,
-      result: `Start guessing!`,
-      theRange: props,
-    });
     if (!props) {
       alert("nothing entered for custom game!");
+    } else if (props <= 0) {
+      alert("Ooh, no negativity here please.");
+    } else {
+      this.setState({
+        randomNum: Math.ceil(Math.random() * props),
+        gameSelect: true,
+        currentGame: `Got it! I've selected a number between 1 and ${props}...`,
+        result: `Start guessing!`,
+        theRange: props,
+      });
     }
   };
 
   ResetAll = () => {
     this.setState({
-      userCurrentGuess: 2,
+      userCurrentGuess: "",
       result: "",
       randomNum: "",
       currentGame: "",
@@ -103,12 +107,12 @@ class MiniChallenge8 extends React.Component {
             id="Custom Number"
             name="Custom Number"
             type="number"
-            size="sm"
+            size="lg"
+            className="mt-4"
+            onChange={this.handleChange}
           />
           <Button
-            onClick={() =>
-              this.EventHandler(document.getElementById("Custom Number").value)
-            }
+            onClick={() => this.EventHandler(this.state.theRange)}
             classes="mt-3"
             variant="dark"
             number="10"
@@ -140,16 +144,25 @@ class MiniChallenge8 extends React.Component {
             name="Guess here!"
             type="number"
             size="lg"
+            onChange={this.handleChange}
           />
-          <Button
-            variant="warning"
-            onClick={this.generateRand}
-            message="Check your guess!"
-            classes="mt-3"
-          />
+          {!this.state.result.includes("right") && (
+            <Button
+              variant="warning"
+              onClick={() => this.evalNum(this.state.userCurrentGuess)}
+              message="Check your guess!"
+              classes="mt-3"
+            />
+          )}
         </Col>
       </>
     );
+  };
+
+  handleChange = (event) => {
+    event.target.name === "Custom Number"
+      ? this.setState({ theRange: event.target.value })
+      : this.setState({ userCurrentGuess: parseInt(event.target.value) });
   };
 
   render() {

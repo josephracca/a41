@@ -3,43 +3,90 @@ import { Form, Container, Row, Col } from "react-bootstrap";
 import "./mc5.css";
 import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
+import Bubble from "../../../images/chatBubble.png";
 
 const lib1 = [
-  { name: "First Adjective" },
-  { name: "First Noun" },
-  { name: "Another Adjective" },
-  { name: "First Verb" },
-  { name: "A...Plural Noun" },
-  { name: "A second Plural Noun" },
-  { name: "...and a third Plural Noun" },
-  { name: "and a fourth Plural Noun" },
-  { name: "Next Verb" },
-  { name: "...a second noun" },
-  { name: "Verb 3" },
-  { name: "LAST Plural Noun" },
-  { name: "and one last noun!" },
+  { name: "1", placeholder: "First Adjective" },
+  { name: "2", placeholder: "First Noun" },
+  { name: "3", placeholder: "Another Adjective" },
+  { name: "4", placeholder: "First Verb" },
+  { name: "5", placeholder: "A...Plural Noun" },
+  { name: "6", placeholder: "A second Plural Noun" },
+  { name: "7", placeholder: "...and a third Plural Noun" },
+  { name: "8", placeholder: "and a fourth Plural Noun" },
+  { name: "9", placeholder: "Next Verb" },
+  { name: "10", placeholder: "...a second noun" },
+  { name: "11", placeholder: "Verb 3" },
+  { name: "12", placeholder: "LAST Plural Noun" },
+  { name: "13", placeholder: "and one last noun!" },
 ];
 
 const allWords = document.getElementsByClassName("wordsAll");
-const inputWords = [];
+var inputWords = [];
 
-const FieldGroup = () => {
-  return (
-    <>
-      {lib1.map((info) => (
-        <FormField {...info} className="mt-3 wordsAll" type="text"/>
-      ))}
-    </>
-  );
-};
 class MiniChallenge5 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       sum: false,
       result: "",
+      w1: "",
+      w2: "",
+      w3: "",
+      w4: "",
+      w5: "",
+      w6: "",
+      w7: "",
+      w8: "",
+      w9: "",
+      w10: "",
+      w11: "",
+      w12: "",
+      w13: "",
+      show: false,
     };
   }
+
+  FieldGroup = () => {
+    return (
+      <>
+        {lib1.map((info) => (
+          <FormField
+            {...info}
+            className="mt-3 wordsAll"
+            type="text"
+            onChange={this.handleChange}
+          />
+        ))}
+      </>
+    );
+  };
+
+  handleChange = (event) => {
+    event.target.name === "1"
+      ? this.setState({ w1: event.target.value })
+      : event.target.name === "2"
+      ? this.setState({ w2: event.target.value })
+      : event.target.name === "3"
+      ? this.setState({ w3: event.target.value })
+      : event.target.name === "4"
+      ? this.setState({ w4: event.target.value })
+      : event.target.name === "5"
+      ? this.setState({ w5: event.target.value })
+      : event.target.name === "6"
+      ? this.setState({ w6: event.target.value })
+      : event.target.name === "7"
+      ? this.setState({ w7: event.target.value })
+      : event.target.name === "8"
+      ? this.setState({ w8: event.target.value })
+      : event.target.name === "9"
+      ? this.setState({ w9: event.target.value })
+      : event.target.name === "10"
+      ? this.setState({ w10: event.target.value })
+      : event.target.name === "11"
+      ? this.setState({ w11: event.target.value })
+      : this.setState({ w12: event.target.value });
+  };
 
   readValues = () => {
     for (let i = 0; i < allWords.length; i++) {
@@ -48,18 +95,34 @@ class MiniChallenge5 extends React.Component {
 
     if (inputWords.includes("")) {
       alert("You have an empty field...");
+      console.log(inputWords);
     } else {
       this.setState({
-        result: `Spring is a(n) ${inputWords[0]} time of the year to plant a(n) ${inputWords[1]}, after the ${inputWords[2]} frost. First, ${inputWords[3]} the dirt using ${inputWords[4]} and ${inputWords[5]} so you can plant ${inputWords[6]}. ${inputWords[7]} ${inputWords[8]}, ${inputWords[9]} them, and watch them ${inputWords[10]} until summer or fall. ${inputWords[11]} grow in a few weeks, whereas Halloween ${inputWords[12]} may take months but it's worth the wait!`,
+        result: `Spring is a(n) 
+        ${this.state.w1} time of the year to plant a(n) 
+        ${this.state.w2}, after the 
+        ${this.state.w3} frost. First, 
+        ${this.state.w4} the dirt using 
+        ${this.state.w5} and 
+        ${this.state.w6} so you can plant 
+        ${this.state.w7}. 
+        ${this.state.w8} 
+        ${this.state.w9}, 
+        ${this.state.w10} them, and watch them 
+        ${this.state.w11} until summer or fall. 
+        ${this.state.w12} grow in a few weeks, whereas Halloween 
+        ${this.state.w13} may take months but it's worth the wait!`,
+        show: true,
       });
     }
+
+    inputWords = [];
   };
 
   render() {
     return (
       <div className="bg5 slideUp">
         <Container className="endOftheRoad">
-
           <Row>
             <Col>
               <h1>MINI 5</h1>
@@ -68,7 +131,7 @@ class MiniChallenge5 extends React.Component {
           </Row>
 
           <Form.Group>
-            <FieldGroup />
+            <this.FieldGroup />
           </Form.Group>
 
           <Row>
@@ -80,16 +143,24 @@ class MiniChallenge5 extends React.Component {
               />
             </Col>
           </Row>
-
-          <Row className="my-5">
+          <Row className="over">
             <Col>
-              <p className="pulse">
+              <p className=" mt-5">
                 {!this.state.result
-                  ? "Waiting..."
+                  ? "Waiting...but I believe in you!"
                   : `YOUR MADLIB...${this.state.result}`}
               </p>
             </Col>
           </Row>
+          <Row className="my-5">
+            <Col>
+              {this.state.show && (
+                <img src={Bubble} alt="chatBubble" className="w100 "></img>
+              )}
+              
+            </Col>
+          </Row>
+          
         </Container>
       </div>
     );
@@ -97,5 +168,3 @@ class MiniChallenge5 extends React.Component {
 }
 
 export default MiniChallenge5;
-
-//TO-DO: turn the madlib into a modal of some kind...

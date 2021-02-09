@@ -8,31 +8,32 @@ class MiniChallenge6 extends React.Component {
     super(props);
     this.state = {
       numSelected: "",
-      result: "",
+      message: "",
     };
   }
 
-  validateMe = () => {
-    let numInput = document.getElementById("Your Number...").value;
-    let lastDigit = numInput[numInput.length-1];
+  validateMe = (number) => {
 
-    if (!numInput) {
-      this.setState({result: `You had one job...just give me any REAL number.`});
+    let lastDigit = parseInt(number[number.length - 1]);
+    // console.log(number, lastDigit);
+
+    if (!number) {
+      this.setState({
+        message: `You had one job...just give me any REAL number.`,
+      });
     } else {
-      if (Math.abs(lastDigit % 2) === 1) {
-        this.setState({ result: `${numInput} is an odd number.` });
-      } else {
-        this.setState({ result: `${numInput} is an even number.` });
-      }
+      Math.abs(lastDigit % 2) === 1
+        ? this.setState({
+            message: `${number} is an odd number.`,
+          })
+        : this.setState({
+            message: `${number} is an even number.`,
+          });
     }
   };
 
-  checkStatus = () => {
-    if (this.state.numSelected % 2 === 1) {
-      return "is an odd number.";
-    } else {
-      return "is an even number.";
-    }
+  handleChange = (event) => {
+    this.setState({ numSelected: event.target.value });
   };
 
   render() {
@@ -47,10 +48,11 @@ class MiniChallenge6 extends React.Component {
           </Row>
           <Form.Group>
             <FormField
-              id="Your Number..."
-              name="Your Number..."
+              placeholder="Your Number..."
+              name="userInput"
               type="number"
               size="lg"
+              onChange={this.handleChange}
             />
           </Form.Group>
 
@@ -58,7 +60,7 @@ class MiniChallenge6 extends React.Component {
             <Col>
               <Button
                 variant="warning"
-                onClick={this.validateMe}
+                onClick={() => this.validateMe(this.state.numSelected)}
                 message="CHECK NUMBER"
               />
             </Col>
@@ -66,10 +68,10 @@ class MiniChallenge6 extends React.Component {
 
           <Row className="my-3">
             <Col>
-              <h2>
-                {!this.state.result
+              <h2 className="pulse">
+                {!this.state.message
                   ? "Waiting..."
-                  : `Beep boop...${this.state.result}`}
+                  : `Beep boop...${this.state.message}`}
               </h2>
             </Col>
           </Row>

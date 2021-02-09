@@ -59,7 +59,7 @@ class App extends React.Component {
 
   Main = () => {
     return (
-      <div id="home" className="App slideDown height100 Menu ">
+      <div id="home" className="App slideDown height100 Menu">
         <Container fluid className="mt-5 smallWidth">
           <div className="bounceIn">
             <Row className="mb-1">

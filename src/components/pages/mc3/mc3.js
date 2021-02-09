@@ -70,7 +70,7 @@ class MiniChallenge3 extends React.Component {
                   />
                 )}
           <FormField
-              id="num1"
+              key="num1"
               size="lg"
               type="number"
               placeholder="Number 1"
@@ -79,7 +79,7 @@ class MiniChallenge3 extends React.Component {
               onChange={this.handleChange}
             />
             <FormField
-              id="num1"
+              key="num1"
               size="lg"
               type="number"
               placeholder="Number 2"
