@@ -19,7 +19,6 @@ class MiniChallenge3 extends React.Component {
   }
 
   validateMe = () => {
-    console.log(`${this.state.num1}, ${this.state.num2}`);
     if (
       this.state.num1 === "" ||
       this.state.num2 === ""

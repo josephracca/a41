@@ -17,7 +17,6 @@ class MiniChallenge6 extends React.Component {
   validateMe = (number) => {
 
     let lastDigit = parseInt(number[number.length - 1]);
-    // console.log(number, lastDigit);
 
     if (!number) {
       this.setState({

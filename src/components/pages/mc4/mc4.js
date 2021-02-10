@@ -64,7 +64,6 @@ class MiniChallenge4 extends React.Component {
     event.target.name === "num1"
       ? this.setState({ num1: event.target.value })
       : this.setState({ num2: event.target.value });
-      console.log(this.state.num1, this.state.num2)
 
   };
 

@@ -4,8 +4,6 @@ import "./mc5.css";
 import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 import Bubble from "../../../images/chatBubble.png";
-import ValidateMe from "../../validation/validation"
-
 import Toasty from "../../shared/toast/toast";
 
 const lib1 = [
@@ -110,7 +108,6 @@ class MiniChallenge5 extends React.Component {
       this.DisappearToast();
     } else {
       inputWords.forEach(word => {
-        console.log(ValidateMe(word));
       })
 
 

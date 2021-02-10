@@ -44,7 +44,6 @@ class App extends React.Component {
   toggleWindow = () => {
     this.setState({ menuOpen: !this.state.menuOpen });
     this.setState({ mcOpen: !this.state.mcOpen });
-    console.log(this.state.menuOpen, this.state.mcOpen);
   };
 
   menuButton = () => {
@@ -86,7 +85,7 @@ class App extends React.Component {
                   onClick={this.toggleWindow}
                   as={Link}
                   to={`/mc${element}`}
-                  classes="buttonW pulse"
+                  classes="buttons pulse"
                   message={`${element}`}
                 />
               ))}

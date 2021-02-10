@@ -1,8 +1,11 @@
+/* Padding for page header */
+
 .App {
   padding-top: 50px;
   z-index: -1000;
 }
 
+/* menu style, includes bg and bottom padding */
 .Menu{
   background: url('../src/images/retroMenuBG.png') no-repeat!important;
   background-size: cover!important;
@@ -11,42 +14,34 @@
   padding-bottom: 300px;
 }
 
-.dark{
-  background: url('../src/images/mountain.gif') no-repeat!important;
-  background-size: cover!important;
-  background-position: bottom!important;
-  z-index: -1000;
-  padding-bottom: 300px;
-  color: white;
+/* footer styling */
+.bgOpt2{
+  background-image: url('./images/dirt.jpg');
+  background-position: center;
+  background-repeat: none;
+  color: rgb(255, 255, 255);
+  padding: 50px 0 50px 0;
+  z-index: 2000;
 }
 
-.buttonW{
-  width: 80px;
-  height: 80px;
+/* button Styling */
+.buttons{
+  width: 100px;
+  height: 100px;
   margin: 5px;
-
   background-color: rgb(255, 196, 0)!important;
-  
   color: black!important;
-  font-size:3rem!important;
-
+  font-size:4rem!important;
   border-radius: 50%!important;
   border-style: none!important;
 }
 
-.buttonW:hover{
+.buttons:hover{
   background-color: rgb(34, 33, 32)!important;
   color: rgb(255, 255, 255)!important;
   border-style: none!important;
   margin: 5px;
   border-radius: 50%!important;
-}
-
-.title{
-  /* max-width: 200px; */
-  font-size: 6.5rem;
-  line-height: 5.5rem;
-
 }
 
 @media (min-width: 768px) { 
@@ -55,45 +50,37 @@
     line-height: 8rem;
   }
 
-  .buttonW{
-    width: 120px;
-    height: 120px;
-    margin: 5px;
-  
-    background-color: rgb(255, 196, 0)!important;
-    
-    color: black!important;
-    font-size:5rem!important;
-  
-    border-radius: 50%!important;
-    border-style: none!important;
-  }
-
-  .bgOpt2{
-    background-image: url('./images/dirt.jpg');
-    background-position: center;
-    background-repeat: none;
-    color: rgb(255, 255, 255);
-    padding: 100px 0 100px 0;
-    z-index: 2000;
-  }
-
   h1{
     font-size: 5.4rem!important;
     line-height: 4rem!important;
   }
 
-  .footer{
-    margin: 10px 100px 10px 100px!important;
-  }
-
   h4{
     font-size: 1.25rem!important;
   }
+
+  .buttons{
+    width: 120px;
+    height: 120px;
+    font-size:5rem!important;
+  }
+
+  .bgOpt2{
+    padding: 100px 0 100px 0;
+  }
+
+  .footer{
+    margin: 10px 100px 10px 100px!important;
+  }
 }
 
-.space{
-  padding: 100px 0 100px 0;
+
+/* typography */
+.title{
+  /* max-width: 200px; */
+  font-size: 6.5rem;
+  line-height: 5.5rem;
+
 }
 
 h1{
@@ -116,24 +103,6 @@ h4{
   font-size: 1.0rem!important;
 }
 
-.height100{
-  height: 100vh;
-  min-height: 1100px;
-}
-
-.smallWidth{
-  max-width: 100%;
-}
-
-.bgOpt2{
-  background-image: url('./images/dirt.jpg');
-  background-position: center;
-  background-repeat: none;
-  color: rgb(255, 255, 255);
-  padding: 50px 0 50px 0;
-  z-index: 2000;
-}
-
 a{
   color: rgb(255, 217, 0)!important;
 }
@@ -146,13 +115,17 @@ a{
   font-size: 2.25rem!important;
 }
 
-.footer{
-  margin: 10px 0px 10px 0px!important;
+/* height width padding adjustments */
+
+.height100{
+  height: 100vh;
+  min-height: 1100px;
 }
 
-.toastFloat{
-  position: absolute!important;
-  top: 200px!important;
-  right: 50px!important;
-  z-index: 5000;
+.smallWidth{
+  max-width: 100%;
+}
+
+.footer{
+  margin: 10px 0px 10px 0px!important;
 }
