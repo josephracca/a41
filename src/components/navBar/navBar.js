@@ -17,7 +17,7 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      action: props.actionName
+      action: props.actionName,
     };
   }
   refreshPage = () => {
@@ -39,6 +39,7 @@ class NavBar extends React.Component {
                   variant="dark"
                   onClick={this.refreshPage}
                   message={refresh}
+                  label="Refresh"
                 ></Button>
               </Col>
               <Col>
@@ -46,6 +47,7 @@ class NavBar extends React.Component {
                   variant="dark"
                   onClick={this.state.action}
                   message={home}
+                  label="Home"
                 ></Button>
               </Col>
               <Col>
@@ -53,6 +55,7 @@ class NavBar extends React.Component {
                   variant="dark"
                   onClick={this.openIG}
                   message={camera}
+                  label="Instagram"
                 ></Button>
               </Col>
             </Row>
