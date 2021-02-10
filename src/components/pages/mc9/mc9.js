@@ -71,6 +71,7 @@ class MiniChallenge9 extends React.Component {
                 message={this.state.buttonText}
                 onClick={this.GetNewAnswer}
                 classes="mt-2"
+                variant="light"
               />
             </Col>
           </Row>

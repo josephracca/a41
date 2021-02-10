@@ -11,7 +11,8 @@ const NewButton = (props) => {
         to={props.to}
         onClick={props.onClick}
         variant={props.variant}
-        aria-label={props.label}>
+        aria-label={props.label}
+        key={props.name}>
         {props.message}
       </Button>
     </>

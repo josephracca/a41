@@ -166,7 +166,6 @@ class App extends React.Component {
       <>
         <Router>
           <Header />
-          {/* <Toasty /> */}
           {this.state.menuOpen && <this.Main />}
           {this.state.mcOpen && <this.Switched />}
           <NavBar actionName={this.menuButton} />

@@ -97,7 +97,7 @@ class MiniChallenge2 extends React.Component {
 
           <Row>
             <Col>
-              <Button onClick={this.validateMe}>Click here to submit!</Button>
+              <Button onClick={this.validateMe} variant="dark">Click here to submit!</Button>
             </Col>
           </Row>
 

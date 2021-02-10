@@ -74,8 +74,8 @@ class MiniChallenge4 extends React.Component {
           <Row>
             <Col>
               <h1>MINI 4</h1>
-              <h3>{`greater than / less than / equal to`}</h3>
-              <h1>{`>=<`}</h1>
+              <h2>{`greater than / less than / equal to`}</h2>
+              <p className="emoji">{`>=<`}</p>
             </Col>
           </Row>
           <Form.Group>

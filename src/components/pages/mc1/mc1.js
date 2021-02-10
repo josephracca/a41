@@ -79,6 +79,7 @@ class MiniChallenge1 extends React.Component {
                   onChange={this.handleChange}
                   name="First"
                 />
+                
                 <FormField
                   size="lg"
                   type="text"
@@ -86,12 +87,13 @@ class MiniChallenge1 extends React.Component {
                   onChange={this.handleChange}
                   name="Last"
                 />
+              
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col>
-              <Button onClick={this.validateMe}>Submit!</Button>
+              <Button onClick={this.validateMe} variant="warning">Submit!</Button>
             </Col>
           </Row>
           <Row></Row>

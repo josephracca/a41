@@ -11,7 +11,10 @@ const FormField = (props) => {
         placeholder={props.placeholder}
         onChange={props.onChange}
         name={props.name}
+        key={props.name}
       />
+            <label for={props.name} className="sr-only" >{props.name}</label>
+
     </>
   );
 };

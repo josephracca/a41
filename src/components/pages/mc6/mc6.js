@@ -67,7 +67,7 @@ class MiniChallenge6 extends React.Component {
               )}
             <FormField
               placeholder="Your Number..."
-              name="userInput"
+              name="numInput"
               type="number"
               size="lg"
               onChange={this.handleChange}

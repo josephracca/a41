@@ -62,7 +62,7 @@ class MiniChallenge7 extends React.Component {
           </Row>
           <Row>
             <Col xs="12" md="4" className="wiggle">
-              <Image className="width100" src={JohnMayer} />
+              <Image className="width100" src={JohnMayer} alt="John Mayer"/>
             </Col>
             <Col>
               <Col className="paddingTop">

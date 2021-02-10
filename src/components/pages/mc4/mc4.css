@@ -1,5 +1,10 @@
-.bg4{
+.bg4 {
     color: rgb(51, 255, 0);
     padding: 200px 20px 0px 20px;
     background-color: black!important;
+}
+
+.emoji {
+    font-size: 130px!important;
+    line-height: 100px;
 }
