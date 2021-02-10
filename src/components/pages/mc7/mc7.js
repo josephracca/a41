@@ -5,7 +5,8 @@ import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 import JohnMayer from "../../../images/JMayer.png";
 import Toasty from "../../shared/toast/toast";
-// import DisappearToast from "../../shared/toast/disappearToast";
+import Title from "../../shared/titles/titles"
+
 
 class MiniChallenge7 extends React.Component {
   constructor(props) {
@@ -52,14 +53,11 @@ class MiniChallenge7 extends React.Component {
 
   render() {
     return (
-      <div className="bg7 slideUp">
-        <Container>
-          <Row>
-            <Col>
-              <h1>MINI 7</h1>
-              <h2> REVERSE IT </h2>
-            </Col>
-          </Row>
+      <div className="bg7 zoomer">
+        <Container className="zoomer">
+
+          <Title title="MINI 7" subtitle="REVERSE IT" />
+
           <Row>
             <Col xs="12" md="4" className="wiggle">
               <Image className="width100" src={JohnMayer} alt="John Mayer"/>

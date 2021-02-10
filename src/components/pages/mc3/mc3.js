@@ -4,6 +4,7 @@ import "../../../App.css";
 import "./mc3.css";
 import FormField from "../../shared/formControl/formControl";
 import Toasty from "../../shared/toast/toast";
+import Title from "../../shared/titles/titles"
 
 
 
@@ -54,20 +55,16 @@ class MiniChallenge3 extends React.Component {
       <div className="bg3 slideUp height100">
         <Container>
 
-          <Row>
-            <Col>
-              <h1>MINI 3</h1>
-              <h2>mini sum thing</h2>
-            </Col>
-          </Row>
-
-          <Form.Group>
+          <Title title="MINI 3" subtitle="mini sum thing" />
           {this.state.toastAlert && (
                   <Toasty
                     message={this.state.message}
                     showA={this.state.toastAlert}
                   />
                 )}
+
+          <Form.Group>
+
           <FormField
               key="num1"
               size="lg"

@@ -1,29 +1,11 @@
 import React from "react";
-import { Form, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "./mc5.css";
 import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 import Bubble from "../../../images/chatBubble.png";
 import Toasty from "../../shared/toast/toast";
-
-const lib1 = [
-  { name: "1", placeholder: "First Adjective" },
-  { name: "2", placeholder: "First Noun" },
-  { name: "3", placeholder: "Another Adjective" },
-  { name: "4", placeholder: "First Verb" },
-  { name: "5", placeholder: "A...Plural Noun" },
-  { name: "6", placeholder: "A second Plural Noun" },
-  { name: "7", placeholder: "...and a third Plural Noun" },
-  { name: "8", placeholder: "and a fourth Plural Noun" },
-  { name: "9", placeholder: "Next Verb" },
-  { name: "10", placeholder: "...a second noun" },
-  { name: "11", placeholder: "Verb 3" },
-  { name: "12", placeholder: "LAST Plural Noun" },
-  { name: "13", placeholder: "and one last noun!" },
-];
-
-const allWords = document.getElementsByClassName("wordsAll");
-var inputWords = [];
+import Title from "../../shared/titles/titles";
 
 class MiniChallenge5 extends React.Component {
   constructor(props) {
@@ -45,19 +27,38 @@ class MiniChallenge5 extends React.Component {
       w13: "",
       show: false,
       toastAlert: false,
+      lib1: [
+        { name: "1", placeholder: "First Adjective" },
+        { name: "2", placeholder: "First Noun" },
+        { name: "3", placeholder: "Another Adjective" },
+        { name: "4", placeholder: "First Verb" },
+        { name: "5", placeholder: "A...Plural Noun" },
+        { name: "6", placeholder: "A second Plural Noun" },
+        { name: "7", placeholder: "...and a third Plural Noun" },
+        { name: "8", placeholder: "and a fourth Plural Noun" },
+        { name: "9", placeholder: "Next Verb" },
+        { name: "10", placeholder: "...a second noun" },
+        { name: "11", placeholder: "Verb 3" },
+        { name: "12", placeholder: "LAST Plural Noun" },
+        { name: "13", placeholder: "and one last noun!" },
+      ],
+      allWords: document.getElementsByClassName("wordsAll"),
+      inputWords: [],
     };
   }
 
   FieldGroup = () => {
     return (
       <>
-        {lib1.map((info) => (
-          <FormField
-            {...info}
-            className="mt-3 wordsAll"
-            type="text"
-            onChange={this.handleChange}
-          />
+        {this.state.lib1.map((info) => (
+          <Col sm={6} md={4}>
+            <FormField
+              {...info}
+              className="mt-3 wordsAll"
+              type="text"
+              onChange={this.handleChange}
+            />
+          </Col>
         ))}
       </>
     );
@@ -99,18 +100,18 @@ class MiniChallenge5 extends React.Component {
   };
 
   readValues = () => {
-    for (let i = 0; i < allWords.length; i++) {
-      inputWords.push(allWords[i].value);
+    for (let i = 0; i < this.state.allWords.length; i++) {
+      this.state.inputWords.push(this.state.allWords[i].value);
     }
 
-    if (inputWords.includes("")) {
-      this.setState({ result: "You have an empty field...", toastAlert: true });
+    if (this.state.inputWords.includes("")) {
+      this.setState({
+        result: "You have an empty field...",
+        toastAlert: true,
+        show: false,
+      });
       this.DisappearToast();
     } else {
-      inputWords.forEach(word => {
-      })
-
-
       this.setState({
         result: `Spring is a(n) 
         ${this.state.w1} time of the year to plant a(n) 
@@ -130,7 +131,7 @@ class MiniChallenge5 extends React.Component {
       });
     }
 
-    inputWords = [];
+    this.setState({ inputWords: [] });
   };
 
   resetAll = () => {
@@ -151,8 +152,8 @@ class MiniChallenge5 extends React.Component {
       w13: "",
       show: false,
       toastAlert: false,
-    }); 
-  }
+    });
+  };
 
   EndGame = () => {
     return (
@@ -178,9 +179,9 @@ class MiniChallenge5 extends React.Component {
         <Row>
           <Col className="mt-4">
             <Button
-              variant="danger"
+              variant="dark"
               onClick={this.resetAll}
-              message="Close Story"
+              message="Generate New Story!"
             />
           </Col>
         </Row>
@@ -188,35 +189,41 @@ class MiniChallenge5 extends React.Component {
     );
   };
 
+  WordBlanks = () => {
+    return (
+      <>
+        <Row className="mb-3">
+          <this.FieldGroup />
+        </Row>
+        <Row>
+          {this.state.toastAlert && (
+            <Toasty message={this.state.result} showA={this.state.toastAlert} />
+          )}
+        </Row>
+        <Row>
+          <Col>
+            <Button
+              variant="dark"
+              onClick={this.readValues}
+              message="Generate MadLib Now!"
+            />
+          </Col>
+        </Row>
+      </>
+    );
+  };
+
+  Waiting = () => {
+    return <h3 className="pulse mt-3">waiting...</h3>;
+  };
+
   render() {
     return (
-      <div className="bg5 slideUp">
-        <Container className="endOftheRoad">
-          <Row>
-            <Col>
-              <h1>MINI 5</h1>
-              <h2> MADLIB GENERATOR </h2>
-              {this.state.toastAlert && (
-                <Toasty
-                  message={this.state.result}
-                  showA={this.state.toastAlert}
-                />
-              )}
-            </Col>
-          </Row>
-          <Form.Group>
-            <this.FieldGroup />
-          </Form.Group>
-          <Row>
-            <Col>
-              <Button
-                variant="warning"
-                onClick={this.readValues}
-                message="Generate MadLib Now!"
-              />
-            </Col>
-          </Row>
-          {this.state.show === true ? <this.EndGame /> : <h3 className="pulse mt-3">waiting...</h3>}
+      <div className="bg5 slideRight">
+        <Container className="endOftheRoad zoomer">
+          <Title title="MINI 5" subtitle="MADLIB GENERATOR" />{" "}
+          {!this.state.show && <this.WordBlanks />}
+          {this.state.show === true ? <this.EndGame /> : <this.Waiting />}
         </Container>
       </div>
     );

@@ -5,6 +5,8 @@ import "./mc2.css";
 import Toasty from "../../shared/toast/toast";
 import FormField from "../../shared/formControl/formControl";
 
+import Title from "../../shared/titles/titles";
+
 class MiniChallenge2 extends React.Component {
   constructor(props) {
     super(props);
@@ -51,7 +53,11 @@ class MiniChallenge2 extends React.Component {
       this.DisappearToast();
     } else {
       this.setState({
-        message: `Good morrow, ${this.state.firstName}! You woke up at ${this.newDate(this.state.awakeTime)}!? (Relatively late...)`,
+        message: `Good morrow, ${
+          this.state.firstName
+        }! You woke up at ${this.newDate(
+          this.state.awakeTime
+        )}!? (Relatively late...)`,
       });
     }
   };
@@ -65,19 +71,15 @@ class MiniChallenge2 extends React.Component {
   render() {
     return (
       <div className="bg2 slideRight height100">
-        <Container>
-
-          <Row>
-            <Col>
-              <h1>MINI 2</h1>
-              <h2>rise+grind</h2>
-            </Col>
-          </Row>
-
-          <Form.Group>
+        <Container className="zoomer">
+          <Title title="MINI 2" subtitle="rise + grind" />
           {this.state.toastAlert && (
-                  <Toasty message={this.state.message} showA={this.state.toastAlert}/>
-                )}
+            <Toasty
+              message={this.state.message}
+              showA={this.state.toastAlert}
+            />
+          )}
+          <Form.Group>
             <FormField
               name="firstName"
               size="lg"
@@ -97,7 +99,9 @@ class MiniChallenge2 extends React.Component {
 
           <Row>
             <Col>
-              <Button onClick={this.validateMe} variant="dark">Click here to submit!</Button>
+              <Button onClick={this.validateMe} variant="dark">
+                Click here to submit!
+              </Button>
             </Col>
           </Row>
 

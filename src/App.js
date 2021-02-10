@@ -23,8 +23,6 @@ import Header from "../src/components/header/header";
 import Clock from "../src/components/clock/clock";
 import Music from "../src/components/music/music";
 
-// import Toasty from "./components/shared/toast/toast";
-
 const numMiniChallenges = 9;
 const mcArray = [];
 
@@ -55,7 +53,7 @@ class App extends React.Component {
 
   Main = () => {
     return (
-      <div id="home" className="App slideDown height100 Menu">
+      <div id="home" className="App zoomer height100 Menu">
         <Container fluid className="mt-5 smallWidth">
           <div className="bounceIn">
             <Row className="mb-1">
@@ -79,7 +77,6 @@ class App extends React.Component {
           </div>
           <Row className="zoomer mb-5">
             <Col className="mb-5">
-              {/* {console.log(utils.range(1, mcArray))} */}
               {mcArray.map((element) => (
                 <Button
                   onClick={this.toggleWindow}
@@ -176,8 +173,6 @@ class App extends React.Component {
   }
 }
 
-// const utils = {
-//   range: (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i),
-// };
+
 
 export default App;

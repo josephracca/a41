@@ -4,6 +4,8 @@ import ValidateString from "../../validation/validation";
 import "./mc1.css";
 import Toasty from "../../shared/toast/toast";
 import FormField from "../../shared/formControl/formControl";
+import Title from "../../shared/titles/titles"
+
 
 class MiniChallenge1 extends React.Component {
   constructor(props) {
@@ -56,10 +58,9 @@ class MiniChallenge1 extends React.Component {
 
   render() {
     return (
-      <div className="bg slideUp height100">
+      <div className="bg slideLeft height100">
         <Container className="centered smallWidth">
-          <h1>MINI 1</h1>
-          <h2>Welcome!</h2>
+        <Title title="MINI 1" subtitle="Welcome!" />
           <h3>Tell me a little about yourself...</h3>
           <Row>
             <Col>
@@ -87,7 +88,6 @@ class MiniChallenge1 extends React.Component {
                   onChange={this.handleChange}
                   name="Last"
                 />
-              
               </Form.Group>
             </Col>
           </Row>

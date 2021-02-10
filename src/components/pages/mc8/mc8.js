@@ -3,6 +3,7 @@ import { Container, Row, Col, ButtonGroup } from "react-bootstrap";
 import "./mc8.css";
 import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
+import Title from "../../shared/titles/titles"
 
 import Toasty from "../../shared/toast/toast";
 class MiniChallenge8 extends React.Component {
@@ -192,10 +193,9 @@ class MiniChallenge8 extends React.Component {
     return (
       <div className="bg8 slideUp">
         <Container>
-          <Row>
+          <Title title="MINI 8" subtitle="GUESS IT" />
+          <Row className="mt-3">
             <Col xs="12">
-              <h1>MINI 8</h1>
-              <h2> GUESS IT </h2>
               {this.state.toastAlert && (
                 <Toasty
                   message={this.state.result}
@@ -204,7 +204,7 @@ class MiniChallenge8 extends React.Component {
               )}
               <h3>
                 {!this.state.currentGame
-                  ? `I'll pick a random number and you try to guess it. Wanna play? You can also select difficulty level for an extra challenge.`
+                  ? `I'll pick a random number and you try to guess it. Ready to play? Select difficulty level or use your own number for an extra challenge.`
                   : this.state.currentGame}
               </h3>
             </Col>
@@ -230,5 +230,3 @@ class MiniChallenge8 extends React.Component {
 }
 
 export default MiniChallenge8;
-
-// toast messaging system; in services folder: that has to go to other services to pull...or utilities.... organize it create folder to keep it organized, try to break things out that you could potentially use for later...

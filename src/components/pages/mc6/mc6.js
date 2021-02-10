@@ -4,18 +4,18 @@ import "./mc6.css";
 import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 import Toasty from "../../shared/toast/toast";
+import Title from "../../shared/titles/titles"
 class MiniChallenge6 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       numSelected: "",
       message: "",
-      toastAlert: false
+      toastAlert: false,
     };
   }
 
   validateMe = (number) => {
-
     let lastDigit = parseInt(number[number.length - 1]);
 
     if (!number) {
@@ -52,19 +52,16 @@ class MiniChallenge6 extends React.Component {
     return (
       <div className="bg6 slideUp height100">
         <Container>
-          <Row>
-            <Col>
-              <h1>MINI 6</h1>
-              <h2> ODD'R EVEN </h2>
-            </Col>
-          </Row>
-          <Form.Group>
+
+          <Title title="MINI 6" subtitle="ODD'R EVEN" />
           {this.state.toastAlert && (
-                <Toasty
-                  message={this.state.message}
-                  showA={this.state.toastAlert}
-                />
-              )}
+              <Toasty
+                message={this.state.message}
+                showA={this.state.toastAlert}
+              />
+            )}
+          <Form.Group>
+
             <FormField
               placeholder="Your Number..."
               name="numInput"

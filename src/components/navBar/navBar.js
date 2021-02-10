@@ -6,7 +6,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import "./navBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync, faHome, faCamera } from "@fortawesome/free-solid-svg-icons";
-// import ShowMenu from "../shared/showMenu/showMenu";
+
 import Button from "../shared/button/button";
 
 const refresh = <FontAwesomeIcon icon={faSync} size="1x" color="white" />;

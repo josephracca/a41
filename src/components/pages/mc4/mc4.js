@@ -5,6 +5,8 @@ import "./mc4.css";
 import Button from "../../shared/button/button";
 import FormField from "../../shared/formControl/formControl";
 import Toasty from "../../shared/toast/toast";
+import Title from "../../shared/titles/titles"
+
 
 
 class MiniChallenge4 extends React.Component {
@@ -69,22 +71,18 @@ class MiniChallenge4 extends React.Component {
 
   render() {
     return (
-      <div className="bg4 slideUp height100">
+      <div className="bg4 slideLeft height100">
         <Container>
-          <Row>
-            <Col>
-              <h1>MINI 4</h1>
-              <h2>{`greater than / less than / equal to`}</h2>
-              <p className="emoji">{`>=<`}</p>
-            </Col>
-          </Row>
-          <Form.Group>
-          {this.state.toastAlert && (
+        <Title title="MINI 4" subtitle={`greater than / less than / equal to`} />
+        <p className="emoji">{`>=<`}</p>
+        {this.state.toastAlert && (
                 <Toasty
                   message={this.state.result}
                   showA={this.state.toastAlert}
                 />
               )}
+          <Form.Group>
+
             <FormField
               name="num1"
               size="lg"
@@ -129,7 +127,3 @@ class MiniChallenge4 extends React.Component {
 }
 
 export default MiniChallenge4;
-
-// Pak ganern ang ganda naman yung effects nito...
-// Let's see what this one looks like...
-// this really is like sizzling with this puff of smoke coming out of the top At least you won't lose your spot when you're in VS Code jamming out to some Puff the Magic Dragon
