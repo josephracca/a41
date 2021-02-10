@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, Container, Row, Col } from "react-bootstrap";
+import { Button, Container, Row, Col } from "react-bootstrap";
 import ValidateString from "../../validation/validation";
 import "./mc1.css";
 import Toasty from "../../shared/toast/toast";
@@ -63,15 +63,22 @@ class MiniChallenge1 extends React.Component {
         <Title title="MINI 1" subtitle="Welcome!" />
           <h3>Tell me a little about yourself...</h3>
           <Row>
-            <Col>
+            <Col xs={12}>
               {" "}
-              <Form.Group>
+              <div className="mb-3">
                 {this.state.toastAlert && (
                   <Toasty
                     message={this.state.message}
                     showA={this.state.toastAlert}
                   />
                 )}
+
+                
+              </div>
+            </Col>
+          </Row>
+          <Row className="mb-3">
+          <Col xs={12} sm={6}>
                 <FormField
                   size="lg"
                   type="text"
@@ -80,7 +87,8 @@ class MiniChallenge1 extends React.Component {
                   onChange={this.handleChange}
                   name="First"
                 />
-                
+                </Col>
+                <Col xs={12} sm={6}>
                 <FormField
                   size="lg"
                   type="text"
@@ -88,8 +96,7 @@ class MiniChallenge1 extends React.Component {
                   onChange={this.handleChange}
                   name="Last"
                 />
-              </Form.Group>
-            </Col>
+                </Col>
           </Row>
           <Row>
             <Col>
