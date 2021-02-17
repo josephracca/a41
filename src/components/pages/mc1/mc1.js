@@ -4,8 +4,7 @@ import ValidateString from "../../validation/validation";
 import "./mc1.css";
 import Toasty from "../../shared/toast/toast";
 import FormField from "../../shared/formControl/formControl";
-import Title from "../../shared/titles/titles"
-
+import Title from "../../shared/titles/titles";
 
 class MiniChallenge1 extends React.Component {
   constructor(props) {
@@ -60,7 +59,7 @@ class MiniChallenge1 extends React.Component {
     return (
       <div className="bg slideLeft height100">
         <Container className="centered smallWidth">
-        <Title title="MINI 1" subtitle="Welcome!" />
+          <Title title="MINI 1" subtitle="Welcome!" />
           <h3>Tell me a little about yourself...</h3>
           <Row>
             <Col xs={12}>
@@ -72,35 +71,35 @@ class MiniChallenge1 extends React.Component {
                     showA={this.state.toastAlert}
                   />
                 )}
-
-                
               </div>
             </Col>
           </Row>
-          <Row className="mb-3">
-          <Col xs={12} sm={6}>
-                <FormField
-                  size="lg"
-                  type="text"
-                  placeholder="First Name..."
-                  className="mb-3"
-                  onChange={this.handleChange}
-                  name="First"
-                />
-                </Col>
-                <Col xs={12} sm={6}>
-                <FormField
-                  size="lg"
-                  type="text"
-                  placeholder="Last Name..."
-                  onChange={this.handleChange}
-                  name="Last"
-                />
-                </Col>
-          </Row>
-          <Row>
+          {/* <Row className="mb-3"> */}
+            {/* <Col xs={12} sm={6}> */}
+              <FormField
+                size="lg"
+                type="text"
+                placeholder="First Name..."
+                className="mb-3"
+                onChange={this.handleChange}
+                name="First"
+              />
+            {/* </Col> */}
+            {/* <Col xs={12} sm={6}> */}
+              <FormField
+                size="lg"
+                type="text"
+                placeholder="Last Name..."
+                onChange={this.handleChange}
+                name="Last"
+              />
+            {/* </Col> */}
+          {/* </Row> */}
+          <Row className="mt-3">
             <Col>
-              <Button onClick={this.validateMe} variant="warning">Submit!</Button>
+              <Button onClick={this.validateMe} variant="warning">
+                Submit!
+              </Button>
             </Col>
           </Row>
           <Row></Row>

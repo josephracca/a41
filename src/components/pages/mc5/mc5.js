@@ -6,7 +6,7 @@ import FormField from "../../shared/formControl/formControl";
 import Bubble from "../../../images/chatBubble.png";
 import Toasty from "../../shared/toast/toast";
 import Title from "../../shared/titles/titles";
-
+import ValidateString from "../../validation/validation";
 class MiniChallenge5 extends React.Component {
   constructor(props) {
     super(props);
@@ -64,7 +64,9 @@ class MiniChallenge5 extends React.Component {
     );
   };
 
+
   handleChange = (event) => {
+
     event.target.name === "1"
       ? this.setState({ w1: event.target.value })
       : event.target.name === "2"
@@ -99,6 +101,11 @@ class MiniChallenge5 extends React.Component {
     }, 3250);
   };
 
+  CheckArray = (incoming) => {
+      let checkArray = incoming.filter(element => ValidateString(element));
+      return checkArray.length > 0;
+  }
+
   readValues = () => {
     for (let i = 0; i < this.state.allWords.length; i++) {
       this.state.inputWords.push(this.state.allWords[i].value);
@@ -107,6 +114,13 @@ class MiniChallenge5 extends React.Component {
     if (this.state.inputWords.includes("")) {
       this.setState({
         result: "You have an empty field...",
+        toastAlert: true,
+        show: false,
+      });
+      this.DisappearToast();
+    } else if (this.CheckArray(this.state.inputWords)) {
+      this.setState({
+        result: "You have a number in one of the fields...",
         toastAlert: true,
         show: false,
       });
