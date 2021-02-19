@@ -12,7 +12,7 @@ class MiniChallenge5 extends React.Component {
     super(props);
     this.state = {
       result: "",
-      w1: "",
+      w1: "fgdf",
       w2: "",
       w3: "",
       w4: "",
