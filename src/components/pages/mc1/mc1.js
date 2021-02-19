@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Button, Container, Row, Col, FormGroup } from "react-bootstrap";
 import ValidateString from "../../validation/validation";
 import "./mc1.css";
 import Toasty from "../../shared/toast/toast";
@@ -74,6 +74,7 @@ class MiniChallenge1 extends React.Component {
               </div>
             </Col>
           </Row>
+          <FormGroup>
           {/* <Row className="mb-3"> */}
             {/* <Col xs={12} sm={6}> */}
               <FormField
@@ -95,6 +96,7 @@ class MiniChallenge1 extends React.Component {
               />
             {/* </Col> */}
           {/* </Row> */}
+          </FormGroup>
           <Row className="mt-3">
             <Col>
               <Button onClick={this.validateMe} variant="warning">
